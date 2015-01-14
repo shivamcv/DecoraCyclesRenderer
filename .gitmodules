@@ -1,0 +1,3 @@
+[submodule "CCSycles"]
+	path = CCSycles
+	url = https://github.com/jesterKing/CCSycles.git
