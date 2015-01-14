@@ -1,0 +1,48 @@
+﻿<Window x:Class="DecoraCsycles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        Height="600"
+        Width="900"
+        Title="Decora Cycles"
+        WindowState="Maximized"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <ScrollViewer>
+         <StackPanel>
+                <StackPanel Height="50" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Button Content="Render" Command="{Binding Render}"/>
+                    <TextBox  Width="50" FontSize="20" Text="{Binding Source={StaticResource Locator}, Path=Connection.Samples , UpdateSourceTrigger=PropertyChanged}"/>
+                    <CheckBox IsChecked="{Binding Source={StaticResource Locator}, Path=Connection.SaveOutput}" Content="SaveOuput" />
+                </StackPanel>
+
+                <Expander Header="camera">
+                    <StackPanel>
+                        <TextBox Text="{Binding Translate}"/>
+                        <TextBox Text="{Binding Rotate}"/>
+                        <Button Content="LoadCamera" Command="{Binding LoadCamera}"/>
+                    </StackPanel>
+                </Expander>
+        </StackPanel>
+        </ScrollViewer>
+        
+        <Frame Margin="20" Grid.Column="1" NavigationUIVisibility="Hidden" x:Name="RootFrame"/>
+    </Grid>
+</Window>
