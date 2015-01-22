@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True" preview_type="MONKEY">
+	<nodes>
+		<node type="TEX_CHECKER" custom_color="rgb(0.60799, 0.60799, 0.60799)" label="Specmap" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" scale="5.0" width="208" loc="-382, 417" />
+		<node type="MIX_SHADER" custom_color="rgb(0.0, 0.00259, 0.60799)" fac="0.5" width="150" loc="351, 424" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="7.45058" width="208" loc="286, 698" />
+		<node type="BSDF_GLOSSY" custom_color="rgb(0.0, 0.01964, 0.60799)" label="Glossy Max" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="1.0" width="208" loc="-7, 217" />
+		<node type="INVERT" custom_color="rgb(0.60799, 0.02538, 0.0)" label="Strength" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="104" loc="37, 571" />
+		<node type="OUTPUT_MATERIAL" width="208" loc="977, 484" />
+		<node type="BSDF_GLOSSY" custom_color="rgb(0.0, 0.02032, 0.60799)" label="Glossy Min" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="208" loc="-9, 379" />
+		<node type="MIX_SHADER" custom_color="rgb(0.0, 0.02594, 0.60799)" fac="0.5" width="208" loc="613, 594" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="727, 433" />
+	</nodes>
+	<links>
+		<link to="1" input="1" from="6" output="0" />
+		<link to="1" input="2" from="3" output="0" />
+		<link to="7" input="2" from="1" output="0" />
+		<link to="1" input="0" from="4" output="0" />
+		<link to="7" input="1" from="2" output="0" />
+		<link to="4" input="1" from="0" output="0" />
+		<link to="5" input="0" from="7" output="0" />
+	</links>
+</material>

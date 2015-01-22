@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.0, 0.22463, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="146" loc="221, 123" />
+		<node type="GROUP" group="0" basecolor="rgba(0.80000, 0.80000, 0.80000, 1.0)" scale="500.0" width="200" loc="-356, 133" />
+		<node type="GROUP" group="1" fac="0.03999" colorspec="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughreflec="0.00999" width="189" loc="-58, 161" />
+		<node type="RGB" color="rgba(0.0, 0.32468, 0.5, 1.0)" width="140" loc="-607, 69" />
+	</nodes>
+	<links>
+		<link to="2" input="0" from="1" output="0" />
+		<link to="0" input="0" from="2" output="0" />
+		<link to="1" input="0" from="3" output="0" />
+	</links>
+	<groups>
+		<group name="FlakesHomogeneous" id="0">
+			<groupnodes>
+				<groupnode type="GAMMA" color="rgba(1.0, 1.0, 1.0, 1.0)" gamma="5.0" width="140" loc="3, 117" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.39999" width="155" loc="-7, 11" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.29999" width="155" loc="-9, -123" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="-0.20000" contrast="0.0" width="140" loc="-174, -127" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="179, 13" />
+				<groupnode type="HUE_SAT" label="ColorRepeater" hide="True" hue="0.5" saturation="1.0" value="1.0" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="100" loc="-349, -48" />
+				<groupnode type="TEX_VORONOI" coloring="CELLS" scale="500.0" width="150" loc="-179, 127" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-471, 39" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="301, 13" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="BaseColor" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Scale" type="VALUE" value="500.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="4" input="1" from="2" output="0" />
+				<grouplink to="2" input="0" from="3" output="0" />
+				<grouplink to="0" input="0" from="6" output="0" />
+				<grouplink to="4" input="0" from="0" output="0" />
+				<grouplink to="4" input="2" from="1" output="0" />
+				<grouplink to="8" input="0" from="4" output="0" />
+				<grouplink to="5" input="4" from="7" output="0" />
+				<grouplink to="1" input="0" from="5" output="0" />
+				<grouplink to="3" input="0" from="5" output="0" />
+				<grouplink to="6" input="1" from="7" output="1" />
+			</grouplinks>
+		</group>
+		<group name="SpecularReflection" id="1">
+			<groupnodes>
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.00999" width="174" loc="-103, -58" />
+				<groupnode type="MIX_SHADER" fac="0.02999" width="150" loc="100, 58" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-225, 0" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="222, 58" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Shader" type="SHADER" />
+				<groupinput name="Fac" type="VALUE" value="0.02999" />
+				<groupinput name="ColorSpec" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="RoughReflec" type="VALUE" value="0.00999" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="3" input="0" from="1" output="0" />
+				<grouplink to="1" input="2" from="0" output="0" />
+				<grouplink to="1" input="1" from="2" output="0" />
+				<grouplink to="0" input="0" from="2" output="2" />
+				<grouplink to="0" input="1" from="2" output="3" />
+				<grouplink to="1" input="0" from="2" output="1" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

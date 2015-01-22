@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="GROUP" group="0" glosscol="rgba(0.80000, 0.80000, 0.80000, 1.0)" diffusecol="rgba(0.80000, 0.80000, 0.80000, 1.0)" spec="0.5" roughness="0.0" width="200" loc="-189, 211" />
+		<node type="GROUP" group="1" colour="rgba(0.5, 0.5, 0.5, 1.0)" multiply="1.0" width="200" loc="-189, 336" />
+		<node type="GROUP" group="2" diffuse="rgba(0.80000, 0.80000, 0.80000, 1.0)" alpha="rgba(1.0, 1.0, 1.0, 1.0)" multiply="1.0" width="200" loc="-189, 481" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="332, 233" />
+		<node type="GROUP" group="3" width="200" loc="-189, 44" />
+	</nodes>
+	<links>
+	</links>
+	<groups>
+		<group name="Gloss-Diff" id="0">
+			<groupnodes>
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="95, 133" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-94, 36" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.20000" width="150" loc="-93, 167" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-216, 126" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="217, 133" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="GlossCol" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="DiffuseCol" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Spec" type="VALUE" value="0.5" />
+				<groupinput name="Roughness" type="VALUE" value="0.20000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Output" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="1" from="1" output="0" />
+				<grouplink to="1" input="0" from="3" output="1" />
+				<grouplink to="2" input="1" from="3" output="3" />
+				<grouplink to="4" input="0" from="0" output="0" />
+				<grouplink to="2" input="0" from="3" output="0" />
+				<grouplink to="0" input="0" from="3" output="2" />
+				<grouplink to="0" input="2" from="2" output="0" />
+			</grouplinks>
+		</group>
+		<group name="RGB-BW" id="1">
+			<groupnodes>
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="55, 5" />
+				<groupnode type="RGBTOBW" color="rgba(0.5, 0.5, 0.5, 1.0)" width="80" loc="-51, 0" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-173, 3" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="177, 5" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Colour" type="RGBA" value="rgba(0.5, 0.5, 0.5, 1.0)" />
+				<groupinput name="Multiply" type="VALUE" value="0.5" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Output" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="0" from="1" output="0" />
+				<grouplink to="3" input="0" from="0" output="0" />
+				<grouplink to="1" input="0" from="2" output="0" />
+				<grouplink to="0" input="1" from="2" output="1" />
+			</grouplinks>
+		</group>
+		<group name="Diff-Alpha" id="2">
+			<groupnodes>
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="95, 133" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-89, 36" />
+				<groupnode type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-89, 112" />
+				<groupnode type="GROUP"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="120" loc="-89, 238" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-211, 170" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="217, 133" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Diffuse" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Alpha" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="Multiply" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Output" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="2" from="1" output="0" />
+				<grouplink to="1" input="0" from="4" output="0" />
+				<grouplink to="5" input="0" from="0" output="0" />
+				<grouplink to="0" input="1" from="2" output="0" />
+				<grouplink to="3" input="0" from="4" output="1" />
+				<grouplink to="0" input="0" from="3" output="0" />
+				<grouplink to="3" input="1" from="4" output="2" />
+			</grouplinks>
+		</group>
+		<group name="Gloss-Diff Shader" id="3">
+			<groupnodes>
+				<groupnode type="VALTORGB" interpolation="LINEAR" fac="0.5" stops="2" stop1="0.24090|rgba(0.0, 0.0, 0.0, 1.0)" stop2="0.74545|rgba(1.0, 1.0, 1.0, 1.0)" width="240" loc="294, -368" />
+				<groupnode type="GROUP"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="120" loc="618, -319" />
+				<groupnode type="GROUP"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="120" loc="618, -489" />
+				<groupnode type="TEX_IMAGE" image="" color_space="COLOR" projection="FLAT" projection="FLAT" width="150" loc="65, -392" />
+				<groupnode type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(2.0, 2.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-232, -327" />
+				<groupnode type="TEX_COORD" dupli="False" width="150" loc="-453, -392" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="740, -404" />
+			</groupnodes>
+			<groupoutputs>
+				<groupoutput name="Surface" type="SHADER" />
+				<groupoutput name="Displacement" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="6" input="1" from="2" output="0" />
+				<grouplink to="6" input="0" from="1" output="0" />
+				<grouplink to="1" input="0" from="3" output="0" />
+				<grouplink to="1" input="1" from="3" output="0" />
+				<grouplink to="0" input="0" from="3" output="0" />
+				<grouplink to="1" input="2" from="0" output="0" />
+				<grouplink to="2" input="0" from="3" output="0" />
+				<grouplink to="4" input="0" from="5" output="2" />
+				<grouplink to="3" input="0" from="4" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

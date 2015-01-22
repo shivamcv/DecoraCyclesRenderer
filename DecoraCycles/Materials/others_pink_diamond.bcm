@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.62061, 0.31352)" sample_lamp="False">
+	<nodes>
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.40000, 0.19897, 0.19897, 1.0)" roughness="0.10000" width="150" loc="16, 989" />
+		<node type="BSDF_VELVET" color="rgba(0.375, 0.26242, 0.21970, 1.0)" sigma="0.79999" width="150" loc="-65, 775" />
+		<node type="ADD_SHADER" width="150" loc="366, 611" />
+		<node type="BSDF_GLASS" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="1.0" ior="5.0" width="150" loc="-156, 435" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="1.0" color1="rgba(0.25, 0.18705, 0.12436, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="-463, 266" />
+		<node type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-160, 306" />
+		<node type="VALUE" value="4.0" width="80" loc="-641, 157" />
+		<node type="MATH" operation="MAXIMUM" use_clamp="False" value1="0.5" value2="0.0" width="120" loc="-154, 145" />
+		<node type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="0.25" width="120" loc="-417, 23" />
+		<node type="LIGHT_PATH" width="150" loc="-798, 58" />
+		<node type="ADD_SHADER" width="150" loc="1020, 889" />
+		<node type="MIX_SHADER" fac="0.10000" width="150" loc="1346, 741" />
+		<node type="OUTPUT_MATERIAL" width="180" loc="2278, 788" />
+		<node type="MIX_SHADER" fac="0.63199" width="150" loc="214, 374" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.29499, 0.24816, 1.0)" roughness="0.0" width="150" loc="947, 648" />
+	</nodes>
+	<links>
+		<link to="12" input="0" from="11" output="0" />
+		<link to="11" input="2" from="14" output="0" />
+		<link to="2" input="0" from="1" output="0" />
+		<link to="3" input="0" from="4" output="0" />
+		<link to="4" input="2" from="6" output="0" />
+		<link to="13" input="2" from="3" output="0" />
+		<link to="7" input="0" from="9" output="0" />
+		<link to="13" input="0" from="7" output="0" />
+		<link to="2" input="1" from="13" output="0" />
+		<link to="13" input="1" from="5" output="0" />
+		<link to="5" input="0" from="4" output="0" />
+		<link to="7" input="1" from="8" output="0" />
+		<link to="10" input="1" from="2" output="0" />
+		<link to="11" input="1" from="10" output="0" />
+		<link to="10" input="0" from="0" output="0" />
+	</links>
+</material>

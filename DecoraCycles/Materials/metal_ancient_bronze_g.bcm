@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.58407, 0.31854, 0.04518)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="155" loc="633, 386" />
+		<node type="RGB" label="Gold Colombia3" color="rgba(0.85499, 0.28893, 0.15745, 1.0)" width="140" loc="-340, 435" />
+		<node type="RGB" label="Gold Colombia5" color="rgba(0.79910, 0.43415, 0.07227, 1.0)" width="140" loc="-372, 228" />
+		<node type="RGB" label="Dark Brown" color="rgba(0.00732, 0.00338, 0.00113, 1.0)" width="140" loc="-375, 39" />
+		<node type="GROUP" group="0" color="rgba(0.04357, 0.04357, 0.04357, 1.0)" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="200" loc="113, 276" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="4" output="0" />
+		<link to="4" input="0" from="1" output="0" />
+		<link to="4" input="1" from="2" output="0" />
+		<link to="4" input="2" from="3" output="0" />
+	</links>
+	<groups>
+		<group name="metal_ancient_bronze" id="0">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" width="127" loc="-315, 279" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.5, 0.5, 0.5)" width="140" loc="-122, 264" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.10000" width="177" loc="69, 98" />
+				<groupnode type="LAYER_WEIGHT" blend="0.46500" width="150" loc="-125, -40" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.04357, 0.04357, 0.04357, 1.0)" roughness="0.03999" width="184" loc="-147, -146" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="101, -104" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="315, 62" />
+				<groupnode type="MATH" operation="POWER" use_clamp="False" value1="0.5" value2="4.0" width="150" loc="79, 249" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.06499" width="187" loc="-146, -279" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-269, -108" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="437, 62" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color" type="RGBA" value="rgba(0.04357, 0.04357, 0.04357, 1.0)" />
+				<groupinput name="Color" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Color" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="10" input="0" from="6" output="0" />
+				<grouplink to="1" input="0" from="0" output="1" />
+				<grouplink to="1" input="1" from="0" output="4" />
+				<grouplink to="7" input="0" from="1" output="1" />
+				<grouplink to="6" input="0" from="7" output="0" />
+				<grouplink to="6" input="1" from="2" output="0" />
+				<grouplink to="5" input="1" from="4" output="0" />
+				<grouplink to="5" input="2" from="8" output="0" />
+				<grouplink to="6" input="2" from="5" output="0" />
+				<grouplink to="5" input="0" from="3" output="1" />
+				<grouplink to="4" input="0" from="9" output="0" />
+				<grouplink to="8" input="0" from="9" output="1" />
+				<grouplink to="2" input="0" from="9" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

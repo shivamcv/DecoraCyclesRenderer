@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.01667, 0.09832)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_TRANSLUCENT" color="rgba(0.96479, 0.21441, 0.25364, 1.0)" width="150" loc="-28, 122" />
+		<node type="MIX_SHADER" fac="0.80000" width="150" loc="156, 257" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.64757, 0.64757, 0.64757, 1.0)" roughness="0.0" width="150" loc="171, 108" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="453, 206" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.54094, 0.72607, 1.0)" roughness="0.60000" width="150" loc="204, -27" />
+		<node type="LAYER_WEIGHT" blend="0.10000" width="150" loc="191, 433" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 0.62673, 0.94107, 1.0)" roughness="0.10000" width="150" loc="502, -33" />
+		<node type="LAYER_WEIGHT" blend="0.15000" width="150" loc="488, 427" />
+		<node type="BSDF_GLASS" distribution="BECKMANN" color="rgba(0.83877, 0.35838, 0.31907, 1.0)" roughness="0.0" ior="1.0" width="150" loc="-94, 353" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="1049, 174" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="751, 200" />
+	</nodes>
+	<links>
+		<link to="1" input="2" from="0" output="0" />
+		<link to="3" input="2" from="4" output="0" />
+		<link to="3" input="0" from="5" output="0" />
+		<link to="3" input="1" from="1" output="0" />
+		<link to="10" input="2" from="6" output="0" />
+		<link to="10" input="0" from="7" output="0" />
+		<link to="10" input="1" from="3" output="0" />
+		<link to="1" input="1" from="8" output="0" />
+		<link to="9" input="0" from="10" output="0" />
+	</links>
+</material>

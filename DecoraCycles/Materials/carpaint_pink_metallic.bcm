@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.09084, 0.60830)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="154" loc="228, 422" />
+		<node type="RGB" color="rgba(0.70402, 0.30695, 0.50751, 1.0)" width="140" loc="-777, 505" />
+		<node type="RGB" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="140" loc="-883, 249" />
+		<node type="LAYER_WEIGHT" blend="0.69999" width="150" loc="-505, 554" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="1.70000" width="130" loc="-310, 567" />
+		<node type="MIX_SHADER" fac="0.10000" width="150" loc="-132, 429" />
+		<node type="HUE_SAT" label="Repeat Color" hide="True" hue="0.5" saturation="1.0" value="1.0" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="42" loc="-572, 337" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.15000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="113" loc="-454, 297" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.00999" width="163" loc="-318, 288" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.58399" width="171" loc="-395, 433" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="5" output="0" />
+		<link to="5" input="2" from="8" output="0" />
+		<link to="5" input="1" from="9" output="0" />
+		<link to="8" input="0" from="7" output="0" />
+		<link to="4" input="0" from="3" output="0" />
+		<link to="7" input="2" from="2" output="0" />
+		<link to="5" input="0" from="4" output="0" />
+		<link to="6" input="4" from="1" output="0" />
+		<link to="9" input="0" from="6" output="0" />
+		<link to="7" input="1" from="6" output="0" />
+	</links>
+</material>

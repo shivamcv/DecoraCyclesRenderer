@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="100, 300" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+</material>

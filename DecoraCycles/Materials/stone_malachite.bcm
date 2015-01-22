@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1194, 528" />
+		<node type="GROUP" group="0" color_1="rgba(0.08230, 0.33015, 0.09638, 1.0)" color_2="rgba(0.0, 0.0, 0.0, 1.0)" pattern_size="20.0" pattern_gamma="0.5" roughness="0.0" refl_blend="0.10000" width="120" loc="214, 335" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="NodeGroup.006" id="0">
+			<groupnodes>
+				<groupnode type="TEX_VORONOI" coloring="INTENSITY" scale="20.0" width="150" loc="-396, 214" />
+				<groupnode type="TEX_VORONOI" coloring="INTENSITY" scale="5.0" width="150" loc="-86, 162" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.0, 0.0, 0.0, 1.0)" roughness="0.25" width="150" loc="-186, -223" />
+				<groupnode type="LAYER_WEIGHT" blend="0.10000" width="150" loc="444, 241" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="501, -72" />
+				<groupnode type="MIX_SHADER" fac="0.05000" width="150" loc="784, -117" />
+				<groupnode type="TEX_COORD" dupli="False" width="150" loc="-748, 185" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.08230, 0.33015, 0.09638, 1.0)" roughness="0.0" width="150" loc="-174, -97" />
+				<groupnode type="MATH" operation="DIVIDE" use_clamp="False" value1="0.5" value2="4.0" width="120" loc="-454, 17" />
+				<groupnode type="GAMMA" color="rgba(1.0, 1.0, 1.0, 1.0)" gamma="0.5" width="140" loc="176, 105" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="504, -241" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-576, 2" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="906, -117" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color 1" type="RGBA" value="rgba(0.08230, 0.33015, 0.09638, 1.0)" />
+				<groupinput name="Color 2" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+				<groupinput name="Pattern Size" type="VALUE" value="10.0" />
+				<groupinput name="Pattern Gamma" type="VALUE" value="0.5" />
+				<groupinput name="Roughness" type="VALUE" value="0.0" />
+				<groupinput name="Refl Blend" type="VALUE" value="0.10000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="4" input="1" from="7" output="0" />
+				<grouplink to="5" input="1" from="4" output="0" />
+				<grouplink to="4" input="2" from="2" output="0" />
+				<grouplink to="9" input="0" from="1" output="0" />
+				<grouplink to="4" input="0" from="9" output="0" />
+				<grouplink to="12" input="0" from="5" output="0" />
+				<grouplink to="5" input="2" from="10" output="0" />
+				<grouplink to="5" input="0" from="3" output="0" />
+				<grouplink to="1" input="0" from="0" output="1" />
+				<grouplink to="0" input="0" from="6" output="2" />
+				<grouplink to="8" input="0" from="11" output="2" />
+				<grouplink to="7" input="0" from="11" output="0" />
+				<grouplink to="2" input="0" from="11" output="1" />
+				<grouplink to="1" input="1" from="8" output="0" />
+				<grouplink to="0" input="1" from="11" output="2" />
+				<grouplink to="9" input="1" from="11" output="3" />
+				<grouplink to="10" input="1" from="11" output="4" />
+				<grouplink to="3" input="0" from="11" output="5" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

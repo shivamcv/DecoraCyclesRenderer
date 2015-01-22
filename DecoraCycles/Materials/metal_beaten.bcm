@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="381, 460" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.00999" width="150" loc="-182, 488" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="62, 213" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.20000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="220, 367" />
+		<node type="TEX_NOISE" scale="5.0" detail="2.0" distortion="0.0" width="150" loc="-191, 290" />
+		<node type="TEX_MUSGRAVE" musgrave="FBM" scale="40.0" detail="2.0" dimension="2.0" lacunarity="1.0" offset="0.0" gain="1.0" width="150" loc="-137, 213" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+		<link to="2" input="0" from="4" output="1" />
+		<link to="0" input="2" from="3" output="0" />
+		<link to="3" input="2" from="2" output="0" />
+		<link to="2" input="2" from="5" output="0" />
+	</links>
+</material>

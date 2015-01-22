@@ -27,15 +27,21 @@ namespace DecoraCsycles.Model
         Device dev;
         public Cycles()
         {
-            CSycles.set_kernel_path("lib");
-            CSycles.initialise();
-            
-            client = new Client();
+            try
+            {
+                CSycles.set_kernel_path("lib");
+                CSycles.initialise();
 
-        
-            var scene_params = new SceneParameters(client, ShadingSystem.SVM, BvhType.Static, false, false, false, false);
-            scene = new ccl.Scene(client, scene_params, Device.FirstCuda);
+                client = new Client();
 
+
+                var scene_params = new SceneParameters(client, ShadingSystem.SVM, BvhType.Static, false, false, false, false);
+                scene = new ccl.Scene(client, scene_params, Device.Default);
+            }
+            catch (Exception ec)
+            {
+
+            }
             
         }
 
@@ -49,32 +55,6 @@ namespace DecoraCsycles.Model
             LoadBackground();
 
             StartSession(WriteRenderTileCallback,UpdateRenderTileCallback,StatusUpdateCallback,LoggerCallback);
-
-            //uint bufsize;
-            //uint bufstride;
-
-            //CSycles.session_get_buffer_info(client.Id, Session.Id, out bufsize, out bufstride);
-            //var pixels = CSycles.session_copy_buffer(client.Id, Session.Id, bufsize);
-
-            //var width = (uint)scene.Camera.Size.Width;
-            //var height = (uint)scene.Camera.Size.Height;
-
-            //var bmp = new Bitmap((int)width, (int)height);
-            //for (var x = 0; x < width; x++)
-            //{
-            //    for (var y = 0; y < height; y++)
-            //    {
-            //        var i = y * (int)width * 4 + x * 4;
-            //        var r = ColorClamp((int)(pixels[i] * 255.0f));
-            //        var g = ColorClamp((int)(pixels[i + 1] * 255.0f));
-            //        var b = ColorClamp((int)(pixels[i + 2] * 255.0f));
-            //        var a = ColorClamp((int)(pixels[i + 3] * 255.0f));
-            //        bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
-            //    }
-            //}
-            //bmp.Save("test.bmp");
-
-
         }
 
         public static void StartSession(ccl.CSycles.RenderTileCallback WriteRenderTileCallback,
@@ -86,7 +66,7 @@ namespace DecoraCsycles.Model
                        
             CSycles.set_logger(client.Id, LoggerCallback);
 
-            var session_params = new SessionParameters(client, Device.FirstCuda)
+            var session_params = new SessionParameters(client, Device.Default)
             {
                 Experimental = false,
                 Samples = (int)samples,
@@ -110,10 +90,9 @@ namespace DecoraCsycles.Model
             Session.UpdateTileCallback = UpdateRenderTileCallback;
             Session.WriteTileCallback = WriteRenderTileCallback;
 
-         
-            Session.Start();
-            Session.Wait();
-
+           
+                Session.Start();
+                Session.Wait();
            
         }
         static public Shader create_some_setup_shader()

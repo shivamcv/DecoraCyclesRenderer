@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="GROUP" group="0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" polish="0.5" reflectivity="0.19999" ior="1.45000" width="161" loc="66, 261" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Reflective Glass" id="0">
+			<groupnodes>
+				<groupnode type="MIX_SHADER" fac="0.19999" width="150" loc="242, 40" />
+				<groupnode type="BSDF_GLASS" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" ior="1.45000" width="150" loc="-34, 74" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.20000" width="150" loc="52, -37" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-156, 31" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="364, 40" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Polish" type="VALUE" value="0.20000" />
+				<groupinput name="Reflectivity" type="VALUE" value="0.19999" />
+				<groupinput name="IOR" type="VALUE" value="1.45000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="4" input="0" from="0" output="0" />
+				<grouplink to="2" input="0" from="3" output="0" />
+				<grouplink to="2" input="1" from="3" output="1" />
+				<grouplink to="1" input="0" from="3" output="0" />
+				<grouplink to="1" input="1" from="3" output="1" />
+				<grouplink to="0" input="0" from="3" output="2" />
+				<grouplink to="1" input="2" from="3" output="3" />
+				<grouplink to="0" input="1" from="1" output="0" />
+				<grouplink to="0" input="2" from="2" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

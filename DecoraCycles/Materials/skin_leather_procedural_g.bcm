@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="TEX_COORD" dupli="False" width="150" loc="-190, 737" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="467, 834" />
+		<node type="GROUP" group="0" scale="500.0" vector="Vector(0.0, 0.0, 0.0)" value="1.0" width="200" loc="70, 871" />
+	</nodes>
+	<links>
+		<link to="1" input="0" from="2" output="0" />
+		<link to="2" input="1" from="0" output="2" />
+	</links>
+	<groups>
+		<group name="Leather procedural" id="0">
+			<groupnodes>
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.00453, 0.00453, 0.00453, 1.0)" roughness="1.0" width="150" loc="-235, 196" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 0.96272, 0.95406, 1.0)" roughness="0.10999" width="150" loc="-235, 97" />
+				<groupnode type="TEX_NOISE" scale="2500.0" detail="5.22816" distortion="0.0" width="150" loc="-235, -135" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.00999" width="160" loc="120, -296" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.00150" width="160" loc="119, -135" />
+				<groupnode type="MIX_SHADER" fac="0.10000" width="157" loc="120, 198" />
+				<groupnode type="FRESNEL" ior="1.29999" width="150" loc="-235, 273" />
+				<groupnode type="TEX_VORONOI" coloring="INTENSITY" scale="500.0" width="150" loc="-235, -296" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="5.0" width="120" loc="-453, 56" />
+				<groupnode type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="-24, -296" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="339, -176" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="548, -172" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-575, -168" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="670, 13" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Scale" type="VALUE" value="500.0" />
+				<groupinput name="Vector" type="VECTOR" value="Vector(0.0, 0.0, 0.0)" />
+				<groupinput name="Value" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="5" input="2" from="1" output="0" />
+				<grouplink to="9" input="1" from="7" output="0" />
+				<grouplink to="13" input="0" from="5" output="0" />
+				<grouplink to="4" input="0" from="2" output="0" />
+				<grouplink to="2" input="1" from="8" output="0" />
+				<grouplink to="7" input="1" from="12" output="0" />
+				<grouplink to="5" input="1" from="0" output="0" />
+				<grouplink to="10" input="0" from="4" output="0" />
+				<grouplink to="3" input="0" from="9" output="0" />
+				<grouplink to="10" input="1" from="3" output="0" />
+				<grouplink to="5" input="0" from="6" output="0" />
+				<grouplink to="11" input="0" from="10" output="0" />
+				<grouplink to="2" input="0" from="12" output="1" />
+				<grouplink to="7" input="0" from="12" output="1" />
+				<grouplink to="8" input="0" from="12" output="0" />
+				<grouplink to="13" input="1" from="11" output="0" />
+				<grouplink to="11" input="1" from="12" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

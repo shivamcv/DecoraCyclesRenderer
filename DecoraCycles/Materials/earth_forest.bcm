@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_DIFFUSE" color="rgba(0.07457, 0.07457, 0.07457, 1.0)" roughness="0.0" width="150" loc="653, 127" />
+		<node type="TEX_VORONOI" coloring="CELLS" scale="300.0" width="150" loc="655, 6" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="3169, 115" />
+		<node type="GROUP" group="0" forest_floor_bump="rgba(0.0, 0.0, 0.0, 1.0)" scale_of_forst_vs._floor="10.0" forest_to_floor_ratio="2.0" forest_to_floor_blend="20.0" scale_level_1="75.0" trees_level_1="rgba(0.0, 0.15665, 0.0, 1.0)" trees_2_level_1="rgba(0.01193, 0.02232, 0.0, 1.0)" scale_level_2="50.0" trees_level_2="rgba(0.01066, 0.02866, 0.00134, 1.0)" trees_2_level_2="rgba(0.08599, 0.19126, 0.00800, 1.0)" trees_level_3="rgba(0.01405, 0.03752, 0.01255, 1.0)" mix_scale_between_forests="100.0" forest_1_displacement__scale="300.0" forest_2_displacement_scale="250.0" displacement_factor="500.0" width="200" loc="1038, 190" />
+	</nodes>
+	<links>
+		<link to="2" input="0" from="3" output="0" />
+		<link to="2" input="2" from="3" output="1" />
+		<link to="3" input="0" from="0" output="0" />
+		<link to="3" input="1" from="1" output="1" />
+	</links>
+	<groups>
+		<group name="Forest" id="0">
+			<groupnodes>
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.0, 0.15665, 0.0, 1.0)" roughness="1.0" width="150" loc="-1397, 85" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.01193, 0.02232, 0.0, 1.0)" roughness="0.0" width="150" loc="-1402, -24" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-962, 105" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-896, -242" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-676, 196" />
+				<groupnode type="TEX_NOISE" scale="75.0" detail="2.0" distortion="0.0" width="150" loc="-1405, 274" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.01066, 0.02866, 0.00134, 1.0)" roughness="1.0" width="150" loc="-1321, -370" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" width="100" loc="-85, 112" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.19999" contrast="1.0" width="140" loc="-269, 226" />
+				<groupnode type="TEX_NOISE" scale="10.0" detail="5.0" distortion="1.0" width="150" loc="-507, 354" />
+				<groupnode type="TEX_VORONOI" coloring="INTENSITY" scale="200.0" width="150" loc="64, -417" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.08599, 0.19126, 0.00800, 1.0)" roughness="1.0" width="150" loc="-1323, -492" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="317, 26" />
+				<groupnode type="TEX_NOISE" scale="15.0" detail="5.0" distortion="0.0" width="150" loc="347, -136" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.0" contrast="1.0" width="140" loc="535, -210" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.0, 0.0, 0.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="697, 356" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="726, -323" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.0, 0.0, 0.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="1178, -187" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.01405, 0.03752, 0.01255, 1.0)" roughness="1.0" width="150" loc="-973, -53" />
+				<groupnode type="TEX_NOISE" scale="100.0" detail="2.0" distortion="5.0" width="150" loc="-964, 341" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="918, 145" />
+				<groupnode type="TEX_NOISE" scale="10.0" detail="5.0" distortion="0.5" width="150" loc="258, 492" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.75" contrast="8.0" width="140" loc="484, 447" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.14999" contrast="15.0" width="140" loc="1015, -144" />
+				<groupnode type="TEX_NOISE" scale="10.0" detail="5.0" distortion="0.5" width="150" loc="841, -52" />
+				<groupnode type="HUE_SAT" hue="0.5" saturation="1.0" value="500.0" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="150" loc="922, -286" />
+				<groupnode type="TEX_NOISE" scale="300.0" detail="5.0" distortion="0.0" width="150" loc="53, -216" />
+				<groupnode type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="1456, -232" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.0, 0.0, 0.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="1331, -326" />
+				<groupnode type="TEX_NOISE" scale="50.0" detail="5.0" distortion="0.0" width="150" loc="-1393, -174" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-1527, -24" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="1578, -43" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Forest Floor " type="SHADER" />
+				<groupinput name="Forest Floor Bump" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+				<groupinput name="Scale of Forst vs. Floor" type="VALUE" value="10.0" />
+				<groupinput name="Forest to Floor ratio" type="VALUE" value="0.75" />
+				<groupinput name="Forest to Floor blend" type="VALUE" value="15.0" />
+				<groupinput name="Scale level 1" type="VALUE" value="75.0" />
+				<groupinput name="Trees level 1" type="RGBA" value="rgba(0.0, 0.15665, 0.0, 1.0)" />
+				<groupinput name="Trees 2 level 1" type="RGBA" value="rgba(0.01193, 0.02232, 0.0, 1.0)" />
+				<groupinput name="Scale level 2" type="VALUE" value="50.0" />
+				<groupinput name="Trees level 2" type="RGBA" value="rgba(0.01066, 0.02866, 0.00134, 1.0)" />
+				<groupinput name="Trees 2 level 2" type="RGBA" value="rgba(0.08599, 0.19126, 0.00800, 1.0)" />
+				<groupinput name="Trees level 3" type="RGBA" value="rgba(0.01405, 0.03752, 0.01255, 1.0)" />
+				<groupinput name="Mix scale between forests" type="VALUE" value="100.0" />
+				<groupinput name="Forest 1 displacement  scale" type="VALUE" value="300.0" />
+				<groupinput name="forest 2 displacement scale" type="VALUE" value="200.0" />
+				<groupinput name="Displacement factor" type="VALUE" value="500.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+				<groupoutput name="Color" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="2" input="1" from="0" output="0" />
+				<grouplink to="2" input="2" from="1" output="0" />
+				<grouplink to="4" input="1" from="2" output="0" />
+				<grouplink to="4" input="2" from="18" output="0" />
+				<grouplink to="3" input="1" from="6" output="0" />
+				<grouplink to="3" input="2" from="11" output="0" />
+				<grouplink to="12" input="1" from="4" output="0" />
+				<grouplink to="12" input="2" from="3" output="0" />
+				<grouplink to="8" input="0" from="9" output="1" />
+				<grouplink to="12" input="0" from="7" output="0" />
+				<grouplink to="7" input="0" from="8" output="0" />
+				<grouplink to="2" input="0" from="5" output="1" />
+				<grouplink to="4" input="0" from="19" output="1" />
+				<grouplink to="3" input="0" from="29" output="1" />
+				<grouplink to="16" input="1" from="26" output="1" />
+				<grouplink to="16" input="2" from="10" output="1" />
+				<grouplink to="25" input="4" from="16" output="0" />
+				<grouplink to="14" input="0" from="13" output="1" />
+				<grouplink to="16" input="0" from="14" output="0" />
+				<grouplink to="20" input="2" from="12" output="0" />
+				<grouplink to="31" input="0" from="20" output="0" />
+				<grouplink to="22" input="0" from="21" output="1" />
+				<grouplink to="20" input="0" from="15" output="0" />
+				<grouplink to="15" input="0" from="22" output="0" />
+				<grouplink to="23" input="0" from="24" output="1" />
+				<grouplink to="17" input="0" from="23" output="0" />
+				<grouplink to="28" input="0" from="17" output="0" />
+				<grouplink to="27" input="1" from="28" output="0" />
+				<grouplink to="28" input="2" from="25" output="0" />
+				<grouplink to="5" input="1" from="30" output="5" />
+				<grouplink to="0" input="0" from="30" output="6" />
+				<grouplink to="1" input="0" from="30" output="7" />
+				<grouplink to="29" input="1" from="30" output="8" />
+				<grouplink to="6" input="0" from="30" output="9" />
+				<grouplink to="11" input="0" from="30" output="10" />
+				<grouplink to="18" input="0" from="30" output="11" />
+				<grouplink to="19" input="1" from="30" output="12" />
+				<grouplink to="20" input="1" from="30" output="0" />
+				<grouplink to="21" input="1" from="30" output="2" />
+				<grouplink to="22" input="1" from="30" output="3" />
+				<grouplink to="24" input="1" from="30" output="2" />
+				<grouplink to="23" input="1" from="30" output="3" />
+				<grouplink to="23" input="2" from="30" output="4" />
+				<grouplink to="22" input="2" from="30" output="4" />
+				<grouplink to="28" input="1" from="30" output="1" />
+				<grouplink to="26" input="1" from="30" output="13" />
+				<grouplink to="10" input="1" from="30" output="14" />
+				<grouplink to="25" input="2" from="30" output="15" />
+				<grouplink to="31" input="1" from="27" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

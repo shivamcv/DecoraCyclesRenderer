@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="196, 321" />
+		<node type="TEX_WAVE" wave="BANDS" scale="80.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1924, -239" />
+		<node type="TEX_WAVE" wave="BANDS" scale="30.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1921, 188" />
+		<node type="TEX_WAVE" wave="BANDS" scale="30.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1925, -21" />
+		<node type="TEX_WAVE" wave="BANDS" scale="80.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1917, 399" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 2.35619)" scale="Vector(1.0, 2.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-2278, 374" />
+		<node type="TEX_COORD" hide="True" dupli="False" width="42" loc="-2395, 125" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.78539)" scale="Vector(2.0, 1.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-2289, -293" />
+		<node type="TEX_COORD" hide="True" dupli="False" width="42" loc="-2422, -542" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-1646, 192" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-1646, 37" />
+		<node type="TEX_CHECKER" color1="rgba(0.80000, 0.80000, 0.80000, 1.0)" color2="rgba(0.20000, 0.20000, 0.20000, 1.0)" scale="100.0" width="150" loc="-1337, 237" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="40.0" value2="7.0" width="144" loc="-2413, -77" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="2.42000" value2="7.0" width="144" loc="-2192, 25" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.40000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" width="113" loc="-1487, 254" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="20.0" value2="7.0" width="133" loc="-1670, -261" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="664, 325" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-191, 299" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-202, 133" />
+		<node type="GROUP" group="0" scale="7.0" width="200" loc="-771, 94" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.20000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.02396, 0.02396, 0.02396, 1.0)" width="100" loc="-416, 115" />
+		<node type="TEX_CHECKER" color1="rgba(0.80000, 0.80000, 0.80000, 1.0)" color2="rgba(0.20000, 0.20000, 0.20000, 1.0)" scale="5.0" width="150" loc="-3, 321" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.0, 1.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-293, 321" />
+	</nodes>
+	<links>
+		<link to="0" input="2" from="18" output="0" />
+		<link to="20" input="1" from="19" output="0" />
+		<link to="16" input="0" from="0" output="0" />
+		<link to="17" input="0" from="11" output="0" />
+		<link to="4" input="0" from="5" output="0" />
+		<link to="5" input="0" from="6" output="2" />
+		<link to="2" input="0" from="7" output="0" />
+		<link to="3" input="0" from="5" output="0" />
+		<link to="9" input="1" from="4" output="0" />
+		<link to="9" input="2" from="2" output="0" />
+		<link to="10" input="1" from="3" output="0" />
+		<link to="10" input="2" from="1" output="0" />
+		<link to="14" input="1" from="9" output="0" />
+		<link to="2" input="1" from="13" output="0" />
+		<link to="3" input="1" from="13" output="0" />
+		<link to="1" input="0" from="7" output="0" />
+		<link to="4" input="1" from="12" output="0" />
+		<link to="1" input="1" from="12" output="0" />
+		<link to="11" input="3" from="15" output="0" />
+		<link to="11" input="2" from="10" output="0" />
+		<link to="11" input="1" from="14" output="0" />
+		<link to="7" input="0" from="8" output="2" />
+		<link to="0" input="1" from="17" output="0" />
+		<link to="18" input="0" from="20" output="0" />
+		<link to="0" input="0" from="21" output="1" />
+		<link to="21" input="0" from="22" output="0" />
+	</links>
+	<groups>
+		<group name="Weave" id="0">
+			<groupnodes>
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="80.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1497, -369" />
+				<groupnode type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.5, 1.5, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-1185, 447" />
+				<groupnode type="TEX_COORD" hide="True" dupli="False" width="42" loc="-1424, 337" />
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="30.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1493, 58" />
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="30.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1498, -151" />
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="80.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="-1490, 269" />
+				<groupnode type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 1.57079)" scale="Vector(1.0, 2.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-1851, 244" />
+				<groupnode type="TEX_COORD" hide="True" dupli="False" width="42" loc="-1968, -3" />
+				<groupnode type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(2.0, 1.0, 1.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-1862, -423" />
+				<groupnode type="TEX_COORD" hide="True" dupli="False" width="42" loc="-1994, -672" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-1218, 62" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-1219, -92" />
+				<groupnode type="TEX_CHECKER" color1="rgba(0.80000, 0.80000, 0.80000, 1.0)" color2="rgba(0.20000, 0.20000, 0.20000, 1.0)" scale="100.0" width="150" loc="-909, 107" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="40.0" value2="1.0" width="144" loc="-1985, -207" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="2.42000" value2="1.0" width="144" loc="-1765, -104" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.40000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" width="113" loc="-1060, 124" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="20.0" value2="1.0" width="133" loc="-1243, -391" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-2107, -234" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-787, 107" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Scale" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Color" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="5" input="0" from="6" output="0" />
+				<grouplink to="6" input="0" from="7" output="2" />
+				<grouplink to="3" input="0" from="8" output="0" />
+				<grouplink to="4" input="0" from="6" output="0" />
+				<grouplink to="10" input="1" from="5" output="0" />
+				<grouplink to="10" input="2" from="3" output="0" />
+				<grouplink to="11" input="1" from="4" output="0" />
+				<grouplink to="12" input="0" from="1" output="0" />
+				<grouplink to="18" input="0" from="12" output="0" />
+				<grouplink to="11" input="2" from="0" output="0" />
+				<grouplink to="15" input="1" from="10" output="0" />
+				<grouplink to="3" input="1" from="14" output="0" />
+				<grouplink to="4" input="1" from="14" output="0" />
+				<grouplink to="0" input="0" from="8" output="0" />
+				<grouplink to="5" input="1" from="13" output="0" />
+				<grouplink to="0" input="1" from="13" output="0" />
+				<grouplink to="12" input="3" from="16" output="0" />
+				<grouplink to="14" input="1" from="17" output="0" />
+				<grouplink to="13" input="1" from="17" output="0" />
+				<grouplink to="16" input="1" from="17" output="0" />
+				<grouplink to="12" input="2" from="11" output="0" />
+				<grouplink to="12" input="1" from="15" output="0" />
+				<grouplink to="8" input="0" from="9" output="2" />
+				<grouplink to="1" input="0" from="2" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

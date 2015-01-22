@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_SHADER" fac="0.81599" width="150" loc="3115, 230" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 100.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.0, 1.0, 39.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="2566, -266" />
+		<node type="TEX_WAVE" wave="RINGS" scale="1.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="3094, -210" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.16199" width="150" loc="3215, 0" />
+		<node type="TEX_MUSGRAVE" musgrave="FBM" scale="3.0" detail="6.0" dimension="5.42800" lacunarity="1.0" offset="1.07189" gain="3.06800" width="150" loc="3760, 489" />
+		<node type="MIX_SHADER" fac="0.40799" width="150" loc="3594, 222" />
+		<node type="TEX_NOISE" scale="37.0" detail="2.0" distortion="19.73602" width="150" loc="3918, 84" />
+		<node type="RGBTOBW" color="rgba(0.5, 0.5, 0.5, 1.0)" width="80" loc="4142, 87" />
+		<node type="MIX_SHADER" fac="0.30999" width="150" loc="4567, 314" />
+		<node type="TEX_WAVE" wave="RINGS" scale="1.0" distortion="0.0" detail="2.0" detail_scale="1.0" width="150" loc="2485, 335" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.10999" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="2801, 349" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 100.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.0, -5.47949, 2.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="3356, 659" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.15000" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="4739, -41" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.15623, 0.13008, 0.11138, 1.0)" roughness="0.03600" width="150" loc="4310, 287" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.5" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="4352, 35" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.75" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="4536, 42" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 100.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.0, 1.0, 55.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="4484, 967" />
+		<node type="MIX_SHADER" fac="0.40799" width="150" loc="4797, 478" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.20000" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="5335, 645" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.20672, 0.19517, 0.18277, 1.0)" roughness="0.20000" width="150" loc="5464, 574" />
+		<node type="TEX_VORONOI" coloring="INTENSITY" scale="5.0" width="150" loc="5081, 646" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.15623, 0.13008, 0.11138, 1.0)" roughness="0.03600" width="150" loc="5003, 159" />
+		<node type="TEX_COORD" dupli="False" width="150" loc="1509, 624" />
+		<node type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="0.10000" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="4174, 591" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.50537, 0.49862, 0.48528, 1.0)" roughness="0.93599" width="150" loc="4307, 191" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.58801, 0.58338, 0.57779, 1.0)" roughness="0.16600" width="150" loc="2769, -15" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.88837, 0.96257, 0.93136, 1.0)" roughness="0.61399" width="150" loc="2766, 157" />
+		<node type="MIX_SHADER" fac="0.40799" width="150" loc="5968, 570" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="6577, 459" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 100.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(1.0, 1.0, 31.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="2161, 452" />
+	</nodes>
+	<links>
+		<link to="0" input="1" from="26" output="0" />
+		<link to="29" input="0" from="22" output="0" />
+		<link to="9" input="0" from="29" output="0" />
+		<link to="5" input="1" from="0" output="0" />
+		<link to="0" input="2" from="25" output="0" />
+		<link to="5" input="2" from="3" output="0" />
+		<link to="2" input="0" from="1" output="0" />
+		<link to="1" input="0" from="22" output="0" />
+		<link to="14" input="1" from="2" output="0" />
+		<link to="8" input="1" from="13" output="0" />
+		<link to="23" input="2" from="4" output="0" />
+		<link to="17" input="2" from="5" output="0" />
+		<link to="17" input="0" from="23" output="0" />
+		<link to="7" input="0" from="6" output="0" />
+		<link to="17" input="1" from="8" output="0" />
+		<link to="8" input="2" from="24" output="0" />
+		<link to="0" input="0" from="10" output="0" />
+		<link to="10" input="2" from="9" output="0" />
+		<link to="4" input="0" from="11" output="0" />
+		<link to="11" input="0" from="22" output="0" />
+		<link to="12" input="2" from="15" output="0" />
+		<link to="15" input="1" from="4" output="0" />
+		<link to="15" input="2" from="14" output="0" />
+		<link to="14" input="2" from="7" output="0" />
+		<link to="21" input="0" from="12" output="0" />
+		<link to="20" input="0" from="16" output="0" />
+		<link to="18" input="2" from="20" output="0" />
+		<link to="27" input="0" from="18" output="0" />
+		<link to="27" input="1" from="19" output="0" />
+		<link to="27" input="2" from="17" output="0" />
+		<link to="28" input="0" from="27" output="0" />
+		<link to="28" input="2" from="21" output="0" />
+		<link to="16" input="0" from="22" output="0" />
+	</links>
+</material>

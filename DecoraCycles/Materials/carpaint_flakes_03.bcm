@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_GLOSSY" distribution="GGX" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.00749" width="150" loc="516, 435" />
+		<node type="MIX_SHADER" fac="0.85000" width="150" loc="740, 298" />
+		<node type="MIX_SHADER" fac="0.85000" width="150" loc="537, 238" />
+		<node type="GAMMA" color="rgba(1.0, 1.0, 1.0, 1.0)" gamma="5.0" width="140" loc="113, 262" />
+		<node type="TEX_VORONOI" coloring="CELLS" scale="500.0" width="150" loc="-141, 241" />
+		<node type="FRESNEL" ior="3.0" width="150" loc="-40, -5" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.0, 0.04970, 0.50288, 1.0)" roughness="1.0" width="150" loc="267, 162" />
+		<node type="BSDF_GLOSSY" distribution="GGX" color="rgba(0.0, 1.0, 1.0, 1.0)" roughness="0.0" width="150" loc="267, 55" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="945, 293" />
+	</nodes>
+	<links>
+		<link to="1" input="1" from="0" output="0" />
+		<link to="1" input="2" from="2" output="0" />
+		<link to="3" input="0" from="4" output="1" />
+		<link to="2" input="0" from="3" output="0" />
+		<link to="2" input="1" from="6" output="0" />
+		<link to="2" input="2" from="7" output="0" />
+		<link to="7" input="1" from="5" output="0" />
+		<link to="8" input="0" from="1" output="0" />
+	</links>
+</material>

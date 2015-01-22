@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="ATTRIBUTE" attribute="UVMap" width="200" loc="-831, 493" />
+		<node type="GROUP" group="0" uv_coordinates="rgba(0.80000, 0.80000, 0.80000, 1.0)" thickness="0.01999" width="200" loc="-360, 249" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.71237, 0.69303, 0.51986, 1.0)" roughness="0.10000" width="150" loc="-159, 61" />
+		<node type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-164, -121" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.01041, 0.00861, 0.00241, 1.0)" roughness="0.0" width="150" loc="-159, -201" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="54, 109" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 0.93722, 0.92980, 1.0)" roughness="0.10000" width="150" loc="147, -118" />
+		<node type="MIX_SHADER" fac="0.0" width="150" loc="330, 57" />
+		<node type="FRESNEL" ior="1.45000" width="150" loc="95, 238" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="551, 66" />
+		<node type="TEX_COORD" dupli="False" width="150" loc="-789, 244" />
+	</nodes>
+	<links>
+		<link to="7" input="2" from="6" output="0" />
+		<link to="7" input="1" from="5" output="0" />
+		<link to="9" input="0" from="7" output="0" />
+		<link to="7" input="0" from="8" output="0" />
+		<link to="1" input="0" from="10" output="2" />
+		<link to="5" input="0" from="1" output="0" />
+		<link to="5" input="2" from="4" output="0" />
+		<link to="5" input="1" from="2" output="0" />
+	</links>
+	<groups>
+		<group name="WireFrameMask" id="0">
+			<groupnodes>
+				<groupnode type="MATH" operation="LESS_THAN" use_clamp="False" value1="0.5" value2="0.89999" width="160" loc="109, 236" />
+				<groupnode type="MATH" operation="LESS_THAN" use_clamp="False" value1="0.5" value2="0.89999" width="160" loc="118, -76" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="371, -135" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="582, 7" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="362, 177" />
+				<groupnode type="MATH" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.10000" width="160" loc="123, -238" />
+				<groupnode type="SEPRGB" image="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="80" loc="-238, 238" />
+				<groupnode type="MATH" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.10000" width="160" loc="114, 74" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="0.10000" width="160" loc="-223, -118" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-360, -11" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="704, 7" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="UV coordinates" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="thickness" type="VALUE" value="0.10000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="10" input="0" from="3" output="0" />
+				<grouplink to="6" input="0" from="9" output="0" />
+				<grouplink to="0" input="0" from="6" output="0" />
+				<grouplink to="7" input="0" from="6" output="0" />
+				<grouplink to="4" input="0" from="0" output="0" />
+				<grouplink to="4" input="1" from="7" output="0" />
+				<grouplink to="2" input="0" from="1" output="0" />
+				<grouplink to="2" input="1" from="5" output="0" />
+				<grouplink to="1" input="0" from="6" output="1" />
+				<grouplink to="5" input="0" from="6" output="1" />
+				<grouplink to="3" input="1" from="2" output="0" />
+				<grouplink to="3" input="0" from="4" output="0" />
+				<grouplink to="1" input="1" from="8" output="0" />
+				<grouplink to="0" input="1" from="8" output="0" />
+				<grouplink to="7" input="1" from="9" output="1" />
+				<grouplink to="8" input="1" from="9" output="1" />
+				<grouplink to="5" input="1" from="9" output="1" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.00901, 0.00901, 0.00901)" sample_lamp="False">
+	<nodes>
+		<node type="BSDF_VELVET" color="rgba(0.66472, 0.66472, 0.66472, 1.0)" sigma="0.30000" width="200" loc="-111, 345" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.00122, 0.00122, 0.00122, 1.0)" roughness="0.75" width="150" loc="-76, 219" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="384, 270" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="152, 286" />
+	</nodes>
+	<links>
+		<link to="3" input="1" from="0" output="0" />
+		<link to="2" input="0" from="3" output="0" />
+		<link to="3" input="2" from="1" output="0" />
+	</links>
+</material>

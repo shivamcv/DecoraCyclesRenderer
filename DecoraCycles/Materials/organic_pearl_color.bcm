@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="False">
+	<nodes>
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.84319, 0.94999, 0.83670, 1.0)" roughness="0.05000" width="150" loc="-596, 574" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.97018, 1.0, 0.98679, 1.0)" roughness="0.0" width="150" loc="-599, 405" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.79436, 0.53259, 1.0)" roughness="0.58200" width="150" loc="-612, 179" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-612, 1" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="-308, 157" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="-316, 423" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="-81, 327" />
+		<node type="BSDF_TRANSLUCENT" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="150" loc="179, 103" />
+		<node type="MIX_SHADER" fac="0.10000" width="150" loc="431, 435" />
+		<node type="TEX_NOISE" scale="2.05194" detail="2.20390" distortion="1.0" width="150" loc="-1064, 245" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="836, 314" />
+		<node type="TEX_COORD" dupli="False" width="150" loc="-1264, 245" />
+	</nodes>
+	<links>
+		<link to="10" input="0" from="8" output="0" />
+		<link to="6" input="1" from="5" output="0" />
+		<link to="5" input="1" from="0" output="0" />
+		<link to="8" input="1" from="6" output="0" />
+		<link to="5" input="2" from="1" output="0" />
+		<link to="4" input="1" from="2" output="0" />
+		<link to="4" input="2" from="3" output="0" />
+		<link to="6" input="2" from="4" output="0" />
+		<link to="8" input="2" from="7" output="0" />
+		<link to="2" input="0" from="9" output="0" />
+		<link to="9" input="0" from="11" output="0" />
+	</links>
+</material>

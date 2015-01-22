@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="-10.59863" width="120" loc="374, 141" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-54, 383" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.48183, 0.00535, 0.0, 1.0)" roughness="0.20000" width="150" loc="122, 338" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="319, 309" />
+		<node type="TEX_MAGIC" depth="2" scale="20.94305" distortion="1.0" width="150" loc="189, 146" />
+		<node type="BSDF_VELVET" color="rgba(0.18002, 0.14034, 0.64184, 1.0)" sigma="1.0" width="150" loc="-41, 196" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="505, 301" />
+	</nodes>
+	<links>
+		<link to="6" input="0" from="3" output="0" />
+		<link to="6" input="2" from="0" output="0" />
+		<link to="0" input="0" from="4" output="1" />
+		<link to="3" input="1" from="2" output="0" />
+		<link to="3" input="2" from="5" output="0" />
+	</links>
+</material>

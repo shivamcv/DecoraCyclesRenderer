@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="GROUP" group="0" color="rgba(0.80000, 0.30260, 0.12046, 1.0)" brightness="3.0" width="120" loc="-588, 322" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="530, 277" />
+		<node type="GROUP" group="1" light_color="rgba(0.80000, 0.45251, 0.28785, 1.0)" strength="150.0" fac="1.0" width="120" loc="-22, 341" />
+	</nodes>
+	<links>
+		<link to="1" input="0" from="2" output="0" />
+		<link to="2" input="3" from="0" output="0" />
+	</links>
+	<groups>
+		<group name="Fake_Shade" id="0">
+			<groupnodes>
+				<groupnode type="LIGHT_PATH" width="150" loc="-566, -31" />
+				<groupnode type="MATH" operation="MAXIMUM" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-337, -2" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="3.0" width="120" loc="-76, -19" />
+				<groupnode type="EMISSION" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" strength="10.13211" width="150" loc="201, -5" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-198, -12" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="323, -5" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Brightness" type="VALUE" value="3.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Closure" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="5" input="0" from="3" output="0" />
+				<grouplink to="1" input="0" from="0" output="0" />
+				<grouplink to="1" input="1" from="0" output="3" />
+				<grouplink to="3" input="1" from="2" output="0" />
+				<grouplink to="2" input="1" from="4" output="1" />
+				<grouplink to="2" input="0" from="1" output="0" />
+				<grouplink to="3" input="0" from="4" output="0" />
+			</grouplinks>
+		</group>
+		<group name="Light" id="1">
+			<groupnodes>
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-98, 54" />
+				<groupnode type="MIX_SHADER" fac="1.0" width="150" loc="430, 30" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-301, -163" />
+				<groupnode type="EMISSION" color="rgba(0.80000, 0.33993, 0.12193, 1.0)" strength="31.83098" width="150" loc="-100, 162" />
+				<groupnode type="LIGHT_PATH" width="150" loc="-1037, -158" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-222, 102" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="552, 30" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Light_color" type="RGBA" value="rgba(0.80000, 0.33993, 0.12193, 1.0)" />
+				<groupinput name="Strength" type="VALUE" value="100.0" />
+				<groupinput name="Fac" type="VALUE" value="1.0" />
+				<groupinput name="Base_material" type="SHADER" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Closure" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="6" input="0" from="1" output="0" />
+				<grouplink to="2" input="0" from="4" output="0" />
+				<grouplink to="1" input="2" from="5" output="3" />
+				<grouplink to="0" input="0" from="2" output="0" />
+				<grouplink to="0" input="1" from="5" output="2" />
+				<grouplink to="2" input="1" from="4" output="5" />
+				<grouplink to="1" input="0" from="0" output="0" />
+				<grouplink to="1" input="1" from="3" output="0" />
+				<grouplink to="3" input="1" from="5" output="1" />
+				<grouplink to="3" input="0" from="5" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

@@ -85,7 +85,7 @@ namespace DecoraCsycles.ViewModel
 
          public HomeViewModel()
         {
-            cameraView = SimpleIoc.Default.GetInstance<ConnectionViewModel>().SunburnScene.View.ToString();
+           // cameraView = SimpleIoc.Default.GetInstance<ConnectionViewModel>().SunburnScene.View.ToString();
             var width = (uint)Cycles.scene.Camera.Size.Width;
             var height = (uint)Cycles.scene.Camera.Size.Height;
 
@@ -98,14 +98,13 @@ namespace DecoraCsycles.ViewModel
                      Con.Renderer.Render(WriteRenderTileCallback, UpdateRenderTileCallback, StatusUpdateCallback, LoggerCallback);
                 });
 
-            Task.Factory.StartNew(LoadCameraView);
-            Task.Factory.StartNew(SimpleIoc.Default.GetInstance<ConnectionViewModel>().FetchData);
+            //Task.Factory.StartNew(LoadCameraView);
+            //Task.Factory.StartNew(SimpleIoc.Default.GetInstance<ConnectionViewModel>().FetchData);
 
         }
 
          private void LoadCameraView()
          {
-             return;
              using (var namedPipeClientStream = new NamedPipeClientStream(".", ConnectionViewModel.PIPENAME + "\\Camera", PipeDirection.InOut))
              {
                  namedPipeClientStream.Connect();
@@ -129,11 +128,11 @@ namespace DecoraCsycles.ViewModel
                  var Con = SimpleIoc.Default.GetInstance<ConnectionViewModel>();
 
                  CameraView = view.ToString();
-                // Cycles.Session.Cancel("Asdf");
+                 Cycles.Session.Cancel("Asdf");
                  Cycles.scene.Camera.Matrix = view;
 
                  Cycles.Session.Reset((uint)Cycles.scene.Camera.Size.Width, (uint)Cycles.scene.Camera.Size.Height, (uint)Cycles.samples);
-                Cycles.scene.Reset();
+               //  Cycles.scene.Reset();
 
                  Cycles.Session.Start();
              }
@@ -151,9 +150,9 @@ namespace DecoraCsycles.ViewModel
          public void StatusUpdateCallback(uint sessionId)
          {
              float progress;
-             double total_time;
+             double total_time,render_time,tile_Time;
 
-             CSycles.progress_get_progress(Cycles.client.Id, sessionId, out progress, out total_time);
+             CSycles.progress_get_progress(Cycles.client.Id, sessionId, out progress, out total_time, out render_time,out tile_Time);
              var status = CSycles.progress_get_status(Cycles.client.Id, sessionId);
              var substatus = CSycles.progress_get_substatus(Cycles.client.Id, sessionId);
              uint samples;

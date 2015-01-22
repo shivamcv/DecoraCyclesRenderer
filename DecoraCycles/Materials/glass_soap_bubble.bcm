@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1521, 295" />
+		<node type="GROUP" group="0" colour_amount="0.5" fresnel_amount="1.45000" width="120" loc="294, 285" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="NodeGroup.008" id="0">
+			<groupnodes>
+				<groupnode type="LAYER_WEIGHT" blend="0.89999" width="150" loc="-1047, 314" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 0.0, 0.0, 1.0)" roughness="0.0" width="150" loc="-1052, 166" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.0, 1.0, 0.0, 1.0)" roughness="0.0" width="150" loc="-1047, 6" />
+				<groupnode type="LAYER_WEIGHT" blend="0.30000" width="150" loc="-598, 272" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-580, 56" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.0, 0.0, 1.0, 1.0)" roughness="0.0" width="150" loc="-585, -123" />
+				<groupnode type="LAYER_WEIGHT" blend="0.39999" width="150" loc="-273, 268" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-273, 51" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="72, -142" />
+				<groupnode type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="89, -387" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="401, -199" />
+				<groupnode type="BSDF_GLASS" distribution="BECKMANN" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.0" ior="1.45000" width="150" loc="412, 21" />
+				<groupnode type="FRESNEL" ior="1.45000" width="150" loc="468, 212" />
+				<groupnode type="MIX_SHADER" fac="0.89999" width="150" loc="835, -192" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.48351, 0.0, 0.80000, 1.0)" roughness="0.0" width="150" loc="-264, -246" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="279, 6" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="957, -192" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Colour Amount" type="VALUE" value="0.5" />
+				<groupinput name="Fresnel Amount" type="VALUE" value="1.45000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="4" input="0" from="0" output="1" />
+				<grouplink to="7" input="1" from="4" output="0" />
+				<grouplink to="7" input="0" from="3" output="1" />
+				<grouplink to="8" input="1" from="7" output="0" />
+				<grouplink to="4" input="1" from="1" output="0" />
+				<grouplink to="4" input="2" from="2" output="0" />
+				<grouplink to="7" input="2" from="5" output="0" />
+				<grouplink to="8" input="2" from="14" output="0" />
+				<grouplink to="8" input="0" from="6" output="0" />
+				<grouplink to="10" input="1" from="8" output="0" />
+				<grouplink to="16" input="0" from="13" output="0" />
+				<grouplink to="10" input="2" from="9" output="0" />
+				<grouplink to="13" input="1" from="11" output="0" />
+				<grouplink to="13" input="2" from="10" output="0" />
+				<grouplink to="13" input="0" from="12" output="0" />
+				<grouplink to="10" input="0" from="15" output="0" />
+				<grouplink to="12" input="0" from="15" output="1" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

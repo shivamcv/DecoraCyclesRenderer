@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.58407, 0.31854, 0.04518)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="478, 421" />
+		<node type="OUTPUT_MATERIAL" width="155" loc="688, 405" />
+		<node type="MATH" operation="POWER" use_clamp="False" value1="0.5" value2="4.00000" width="150" loc="247, 558" />
+		<node type="NEW_GEOMETRY" width="127" loc="-172, 654" />
+		<node type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.5, 0.5, 0.5)" width="140" loc="21, 647" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.04357, 0.04357, 0.04357, 1.0)" roughness="0.06499" width="184" loc="8, 183" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="262, 239" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.10000" width="177" loc="236, 406" />
+		<node type="RGB" label="Gold Egypt" hide="True" color="rgba(0.94730, 0.65837, 0.14126, 1.0)" width="88" loc="-331, 136" />
+		<node type="RGB" label="Gold Egypt2" hide="True" color="rgba(0.91309, 0.57112, 0.09305, 1.0)" width="88" loc="-331, 70" />
+		<node type="RGB" label="Color Egypt3" hide="True" color="rgba(0.57758, 0.28744, 0.02732, 1.0)" width="88" loc="-335, 8" />
+		<node type="RGB" label="Gold Egypt5" hide="True" color="rgba(0.67244, 0.39157, 0.04518, 1.0)" width="81" loc="-328, 187" />
+		<node type="RGB" label="Gold Egypt6" hide="True" color="rgba(0.47932, 0.27889, 0.03433, 1.0)" width="83" loc="-335, -42" />
+		<node type="RGB" label="Gold Egypt7" hide="True" color="rgba(0.29613, 0.13013, 0.00856, 1.0)" width="81" loc="-148, 435" />
+		<node type="LAYER_WEIGHT" blend="0.46499" width="150" loc="23, 286" />
+		<node type="RGB" label="Gold Egypt8" hide="True" color="rgba(0.65140, 0.27889, 0.00402, 1.0)" width="85" loc="-171, 318" />
+		<node type="RGB" label="Gold Egypt4" hide="True" color="rgba(0.93011, 0.60382, 0.06662, 1.0)" width="88" loc="-173, 274" />
+		<node type="RGB" label="Gold Jewel2" hide="True" color="rgba(1.00000, 0.71569, 0.14126, 1.0)" width="85" loc="-171, 157" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.03999" width="190" loc="4, 51" />
+		<node type="RGB" label="Gold Jewel3" hide="True" color="rgba(0.31398, 0.17788, 0.00972, 1.0)" width="88" loc="-336, 381" />
+		<node type="RGB" label="Gold Jewel4" hide="True" color="rgba(0.82278, 0.61563, 0.26654, 1.0)" width="81" loc="-170, 117" />
+		<node type="RGB" label="Gold Jewel5" hide="True" color="rgba(0.43982, 0.32476, 0.13086, 1.0)" width="81" loc="-128, 347" />
+		<node type="RGB" label="Gold Jewel" hide="True" color="rgba(0.82278, 0.57112, 0.14702, 1.0)" width="81" loc="-171, 75" />
+		<node type="RGB" label="Dark Brown" color="rgba(0.00732, 0.00338, 0.00113, 1.0)" width="140" loc="23, 476" />
+		<node type="RGB" label="Gold Colombia6" hide="True" color="rgba(0.52711, 0.24620, 0.03560, 1.0)" width="100" loc="-140, 392" />
+		<node type="RGB" label="Gold Colombia4" hide="True" color="rgba(0.60382, 0.27049, 0.03954, 1.0)" width="100" loc="-340, 336" />
+		<node type="RGB" label="Gold Colombia2" hide="True" color="rgba(0.61720, 0.32314, 0.06301, 1.0)" width="99" loc="-342, 285" />
+		<node type="RGB" label="Gold Colombia" hide="True" color="rgba(0.78353, 0.41788, 0.08021, 1.0)" width="99" loc="-343, 241" />
+		<node type="RGB" label="Gold Colombia5" color="rgba(0.79910, 0.43415, 0.07227, 1.0)" width="140" loc="-168, 74" />
+		<node type="RGB" label="Gold Colombia3" color="rgba(0.85499, 0.57112, 0.14412, 1.0)" width="140" loc="-170, 264" />
+	</nodes>
+	<links>
+		<link to="1" input="0" from="0" output="0" />
+		<link to="4" input="0" from="3" output="1" />
+		<link to="4" input="1" from="3" output="4" />
+		<link to="2" input="0" from="4" output="1" />
+		<link to="0" input="0" from="2" output="0" />
+		<link to="0" input="1" from="7" output="0" />
+		<link to="6" input="1" from="5" output="0" />
+		<link to="6" input="2" from="18" output="0" />
+		<link to="0" input="2" from="6" output="0" />
+		<link to="6" input="0" from="14" output="1" />
+		<link to="7" input="0" from="23" output="0" />
+		<link to="5" input="0" from="29" output="0" />
+		<link to="18" input="0" from="28" output="0" />
+	</links>
+</material>

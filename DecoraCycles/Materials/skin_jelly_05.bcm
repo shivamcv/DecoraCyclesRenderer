@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="517, 224" />
+		<node type="TEX_COORD" dupli="False" width="150" loc="-750, 276" />
+		<node type="BSDF_TRANSLUCENT" color="rgba(0.80000, 0.45208, 0.0, 1.0)" width="150" loc="9, 220" />
+		<node type="FRESNEL" ior="1.66733" width="160" loc="-412, 390" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.07673, 0.14454, 0.15232, 1.0)" roughness="0.0" width="150" loc="41, 424" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.0, 0.5, 0.125, 1.0)" color2="rgba(0.05492, 0.42001, 0.16890, 1.0)" width="100" loc="-158, 264" />
+		<node type="MIX_SHADER" fac="0.87000" width="150" loc="250, 354" />
+	</nodes>
+	<links>
+		<link to="6" input="1" from="4" output="0" />
+		<link to="0" input="0" from="6" output="0" />
+		<link to="6" input="2" from="2" output="0" />
+		<link to="5" input="0" from="3" output="0" />
+		<link to="2" input="0" from="5" output="0" />
+	</links>
+</material>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 0.68531, 0.15030, 1.0)" roughness="0.15000" width="150" loc="48, 300" />
+		<node type="TEX_NOISE" scale="68.99987" detail="2.40684" distortion="12.65606" width="150" loc="52, 156" />
+		<node type="MATH" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.81200" width="120" loc="253, 125" />
+		<node type="TEX_MUSGRAVE" musgrave="FBM" scale="860.48791" detail="2.37062" dimension="2.0" lacunarity="44.37200" offset="0.0" gain="1.0" width="150" loc="51, -35" />
+		<node type="TEX_MAGIC" depth="2" scale="519.49645" distortion="28.07604" width="150" loc="41, -279" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.26602" width="120" loc="621, -107" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="593, 125" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="774, 118" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="-0.00400" width="120" loc="1052, -477" />
+		<node type="MATH" operation="SINE" use_clamp="False" value1="0.5" value2="2.43678" width="120" loc="762, -469" />
+		<node type="MATH" operation="TANGENT" use_clamp="False" value1="0.5" value2="0.52958" width="120" loc="909, -456" />
+		<node type="TEX_WAVE" wave="RINGS" scale="39.22412" distortion="21.16784" detail="2.31078" detail_scale="1.94421" width="150" loc="571, -411" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="954, 75" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="1454, 313" />
+		<node type="MATH" operation="SINE" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="1603, -158" />
+		<node type="TEX_WAVE" wave="RINGS" scale="9.16790" distortion="9.56811" detail="2.04166" detail_scale="28.49597" width="150" loc="1318, -223" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.37356" value2="0.5" width="120" loc="1781, -163" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.05601" value2="0.5" width="120" loc="1959, -166" />
+		<node type="TEX_VORONOI" coloring="INTENSITY" scale="275.35241" width="150" loc="43, -465" />
+		<node type="VALUE" value="9.16800" width="80" loc="1210, -304" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="-89, 96" />
+		<node type="VALUE" value="860.48797" width="80" loc="-187, -189" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="-100, -121" />
+		<node type="VALUE" value="296.85839" width="80" loc="-181, -357" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="-90, -298" />
+		<node type="VALUE" value="314.93222" width="80" loc="-204, -530" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="-97, -482" />
+		<node type="VALUE" value="39.22399" width="80" loc="421, -459" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="424, -548" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="1232, -456" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.00300" width="120" loc="1118, -164" />
+		<node type="TEX_MUSGRAVE" musgrave="MULTIFRACTAL" scale="504.95214" detail="2.26371" dimension="2.0" lacunarity="1.16760" offset="0.0" gain="1.0" width="150" loc="948, -170" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="806, -135" />
+		<node type="VALUE" value="504.95199" width="80" loc="831, -280" />
+		<node type="VALUE" value="69.0" width="80" loc="-200, 22" />
+		<node type="VALUE" value="0.5" width="120" loc="-532, 234" />
+		<node type="MATH" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="442, -316" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="1466, 47" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.84040" width="120" loc="1327, 217" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="442, -108" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.30960" width="120" loc="282, -291" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="-0.20538" width="151" loc="605, -259" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.01237" width="160" loc="395, 131" />
+	</nodes>
+	<links>
+		<link to="13" input="0" from="0" output="0" />
+		<link to="42" input="0" from="2" output="0" />
+		<link to="2" input="1" from="1" output="1" />
+		<link to="6" input="0" from="42" output="0" />
+		<link to="39" input="1" from="4" output="1" />
+		<link to="39" input="0" from="3" output="1" />
+		<link to="6" input="1" from="5" output="0" />
+		<link to="36" input="0" from="18" output="1" />
+		<link to="41" input="0" from="36" output="0" />
+		<link to="5" input="0" from="41" output="0" />
+		<link to="7" input="0" from="6" output="0" />
+		<link to="30" input="0" from="31" output="1" />
+		<link to="7" input="1" from="30" output="0" />
+		<link to="9" input="0" from="11" output="1" />
+		<link to="12" input="0" from="7" output="0" />
+		<link to="10" input="0" from="9" output="0" />
+		<link to="12" input="1" from="8" output="0" />
+		<link to="8" input="0" from="10" output="0" />
+		<link to="37" input="1" from="12" output="0" />
+		<link to="38" input="0" from="37" output="0" />
+		<link to="14" input="1" from="15" output="1" />
+		<link to="16" input="1" from="14" output="0" />
+		<link to="17" input="1" from="16" output="0" />
+		<link to="37" input="0" from="17" output="0" />
+		<link to="20" input="1" from="34" output="0" />
+		<link to="1" input="1" from="20" output="0" />
+		<link to="22" input="1" from="21" output="0" />
+		<link to="3" input="1" from="22" output="0" />
+		<link to="24" input="1" from="23" output="0" />
+		<link to="4" input="1" from="24" output="0" />
+		<link to="26" input="1" from="25" output="0" />
+		<link to="18" input="1" from="26" output="0" />
+		<link to="28" input="1" from="27" output="0" />
+		<link to="11" input="1" from="28" output="0" />
+		<link to="29" input="1" from="19" output="0" />
+		<link to="15" input="1" from="29" output="0" />
+		<link to="32" input="1" from="33" output="0" />
+		<link to="31" input="1" from="32" output="0" />
+		<link to="20" input="0" from="35" output="0" />
+		<link to="22" input="0" from="35" output="0" />
+		<link to="24" input="0" from="35" output="0" />
+		<link to="26" input="0" from="35" output="0" />
+		<link to="32" input="0" from="35" output="0" />
+		<link to="29" input="0" from="35" output="0" />
+		<link to="28" input="0" from="35" output="0" />
+		<link to="13" input="2" from="38" output="0" />
+		<link to="40" input="0" from="39" output="0" />
+		<link to="36" input="1" from="40" output="0" />
+	</links>
+</material>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.0, 0.10785, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="136, 134" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.39999" width="179" loc="-78, -45" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.29999" width="180" loc="-80, 104" />
+		<node type="GAMMA" color="rgba(1.0, 1.0, 1.0, 1.0)" gamma="5.0" width="140" loc="-60, 222" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.00999" width="174" loc="139, 0" />
+		<node type="TEX_VORONOI" coloring="CELLS" scale="500.0" width="150" loc="-256, 221" />
+		<node type="MIX_SHADER" fac="0.03999" width="150" loc="327, 109" />
+		<node type="OUTPUT_MATERIAL" width="146" loc="501, 104" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-204, 58" />
+		<node type="LAYER_WEIGHT" blend="0.5" width="129" loc="-528, -106" />
+		<node type="FRESNEL" ior="1.45000" width="126" loc="-674, -145" />
+		<node type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="-0.20000" contrast="0.0" width="140" loc="-397, 25" />
+		<node type="RGB" color="rgba(0.72934, 0.0, 0.01039, 1.0)" width="140" loc="-596, 255" />
+		<node type="RGB" color="rgba(0.5, 0.0, 0.00900, 1.0)" width="140" loc="-602, 72" />
+	</nodes>
+	<links>
+		<link to="0" input="1" from="2" output="0" />
+		<link to="6" input="1" from="0" output="0" />
+		<link to="3" input="0" from="5" output="0" />
+		<link to="0" input="0" from="3" output="0" />
+		<link to="0" input="2" from="1" output="0" />
+		<link to="7" input="0" from="6" output="0" />
+		<link to="6" input="2" from="4" output="0" />
+		<link to="9" input="0" from="10" output="0" />
+		<link to="8" input="0" from="9" output="1" />
+		<link to="8" input="1" from="11" output="0" />
+		<link to="2" input="0" from="8" output="0" />
+		<link to="1" input="0" from="8" output="0" />
+		<link to="11" input="1" from="9" output="0" />
+		<link to="8" input="2" from="12" output="0" />
+		<link to="11" input="0" from="13" output="0" />
+	</links>
+</material>

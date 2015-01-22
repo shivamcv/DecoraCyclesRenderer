@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.50370, 0.41329, 0.11516)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_DIFFUSE" color="rgba(0.17583, 0.52207, 0.03054, 1.0)" roughness="0.0" width="150" loc="-127, 300" />
+		<node type="BSDF_GLOSSY" distribution="SHARP" color="rgba(0.88750, 0.88371, 0.0, 1.0)" roughness="0.0" width="150" loc="-127, 177" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="286, 432" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-326, 470" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="1.0" width="120" loc="-135, 463" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="67, 330" />
+		<node type="TEX_COORD" dupli="False" width="150" loc="-1110, 502" />
+		<node type="TEX_MUSGRAVE" musgrave="FBM" scale="-5.10382" detail="2.0" dimension="2.0" lacunarity="1.0" offset="0.0" gain="1.0" width="150" loc="-584, 508" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.78539, 0.78539, 0.0)" scale="Vector(3.0, 3.0, 3.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-898, 505" />
+		<node type="TEX_VORONOI" coloring="INTENSITY" scale="2.0" width="150" loc="-590, 669" />
+	</nodes>
+	<links>
+		<link to="2" input="0" from="5" output="0" />
+		<link to="5" input="1" from="0" output="0" />
+		<link to="5" input="2" from="1" output="0" />
+		<link to="2" input="2" from="4" output="0" />
+		<link to="5" input="0" from="4" output="0" />
+		<link to="8" input="0" from="6" output="0" />
+		<link to="3" input="0" from="9" output="1" />
+		<link to="4" input="0" from="3" output="0" />
+		<link to="3" input="1" from="7" output="1" />
+		<link to="7" input="0" from="8" output="0" />
+	</links>
+</material>

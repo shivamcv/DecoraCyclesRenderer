@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.14079, 0.80000, 0.0)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="MIX_SHADER" fac="0.0" width="150" loc="37, 250" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.00105, 0.07768, 0.0, 1.0)" roughness="0.0" width="150" loc="-198, 121" />
+		<node type="LAYER_WEIGHT" blend="0.58999" width="150" loc="-171, 394" />
+		<node type="BSDF_GLASS" distribution="BECKMANN" color="rgba(0.33836, 0.86887, 0.35257, 1.0)" roughness="0.0" ior="1.33000" width="150" loc="-259, 293" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+		<link to="1" input="2" from="2" output="0" />
+		<link to="1" input="1" from="4" output="0" />
+		<link to="1" input="0" from="3" output="1" />
+	</links>
+</material>

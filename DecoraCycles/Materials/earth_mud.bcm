@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.50370, 0.41329, 0.11516)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="100, 300" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.52207, 0.30560, 0.13059, 1.0)" roughness="0.0" width="150" loc="-100, 300" />
+		<node type="BSDF_GLOSSY" distribution="SHARP" color="rgba(0.80000, 0.67401, 0.24334, 1.0)" roughness="0.0" width="150" loc="-97, 177" />
+		<node type="TEX_VORONOI" coloring="INTENSITY" scale="32.26399" width="150" loc="-102, 453" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="341, 381" />
+	</nodes>
+	<links>
+		<link to="4" input="0" from="0" output="0" />
+		<link to="0" input="1" from="1" output="0" />
+		<link to="0" input="2" from="2" output="0" />
+		<link to="0" input="0" from="3" output="1" />
+		<link to="4" input="2" from="3" output="1" />
+	</links>
+</material>

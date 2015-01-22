@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True" preview_type="MONKEY">
+	<nodes>
+		<node type="TEX_COORD" custom_color="rgb(0.0, 0.60799, 0.01263)" dupli="False" width="150" loc="-179, -291" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.10000" width="208" loc="453, 593" />
+		<node type="MIX_SHADER" custom_color="rgb(0.0, 0.00259, 0.60799)" fac="0.5" width="150" loc="518, 318" />
+		<node type="TEX_IMAGE" custom_color="rgb(0.0, 0.60799, 0.05976)" image="file://C:\Users\Dad\kratzer.jpg" source="FILE" color_space="COLOR" projection="FLAT" projection="FLAT" width="208" loc="434, -238" />
+		<node type="MATH" custom_color="rgb(0.60799, 0.0, 0.02392)" label="Kratzer Tiefe" operation="POWER" use_clamp="False" value1="0.5" value2="0.00500" width="166" loc="898, -194" />
+		<node type="TEX_NOISE" custom_color="rgb(0.0, 0.60799, 0.13081)" scale="200.0" detail="30.0" distortion="0.09999" width="208" loc="640, 20" />
+		<node type="MATH" custom_color="rgb(0.0, 0.60799, 0.13303)" operation="POWER" use_clamp="False" value1="0.5" value2="0.29999" width="166" loc="954, 24" />
+		<node type="INVERT" custom_color="rgb(0.60799, 0.02538, 0.0)" label="Strength" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="104" loc="204, 465" />
+		<node type="TEX_CHECKER" custom_color="rgb(0.60799, 0.60799, 0.60799)" label="Specmap" color1="rgba(1.0, 1.0, 1.0, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" scale="5.0" width="208" loc="-178, 675" />
+		<node type="BSDF_GLOSSY" custom_color="rgb(0.0, 0.02032, 0.60799)" label="Glossy Min" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="208" loc="157, 274" />
+		<node type="BSDF_GLOSSY" custom_color="rgb(0.0, 0.01964, 0.60799)" label="Glossy Max" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="1.0" width="208" loc="158, 112" />
+		<node type="TEX_IMAGE" custom_color="rgb(0.0, 0.60799, 0.05866)" label="Flecken Textur" image="file://C:\Users\Dad\flecken.png" source="FILE" color_space="COLOR" projection="FLAT" projection="FLAT" width="208" loc="100, -187" />
+		<node type="TEX_VORONOI" coloring="INTENSITY" scale="23.49999" width="208" loc="-176, 471" />
+		<node type="MIX_RGB" custom_color="rgb(0.0, 0.60799, 0.08857)" blend_type="MIX" use_clamp="False" fac="0.85000" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="156" loc="1243, 265" />
+		<node type="MIX_SHADER" custom_color="rgb(0.0, 0.02594, 0.60799)" fac="0.59999" width="208" loc="773, 425" />
+		<node type="OUTPUT_MATERIAL" width="208" loc="1666, 316" />
+	</nodes>
+	<links>
+		<link to="2" input="1" from="9" output="0" />
+		<link to="2" input="2" from="10" output="0" />
+		<link to="14" input="2" from="2" output="0" />
+		<link to="2" input="0" from="7" output="0" />
+		<link to="11" input="0" from="0" output="0" />
+		<link to="14" input="1" from="1" output="0" />
+		<link to="3" input="0" from="0" output="2" />
+		<link to="6" input="0" from="5" output="0" />
+		<link to="13" input="2" from="4" output="0" />
+		<link to="4" input="0" from="3" output="0" />
+		<link to="13" input="1" from="6" output="0" />
+		<link to="7" input="1" from="8" output="0" />
+		<link to="15" input="0" from="14" output="0" />
+	</links>
+</material>

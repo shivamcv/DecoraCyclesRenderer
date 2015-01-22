@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1282, 396" />
+		<node type="GROUP" group="0" paint_color="rgba(0.0, 0.02423, 0.22657, 1.0)" fl._size="520.0" fl._amount="0.35699" metal_blend="0.5" brilliance="0.01999" width="120" loc="1012, 396" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Metallic Coating" id="0">
+			<groupnodes>
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.79365, 0.79365, 0.79365, 1.0)" roughness="0.00800" width="200" loc="487, -160" />
+				<groupnode type="TEX_NOISE" label="flacke size" scale="0.0" detail="1.0" distortion="0.0" width="200" loc="-827, 49" />
+				<groupnode type="MATH" label="Flackes amount" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.0" width="160" loc="-466, -100" />
+				<groupnode type="TEX_COORD" dupli="False" width="150" loc="-1074, 34" />
+				<groupnode type="MIX_RGB" blend_type="MULTIPLY" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.12629, 0.12629, 0.12629, 1.0)" width="134" loc="-212, 30" />
+				<groupnode type="MIX_SHADER" label="Brilliance" fac="0.40000" width="150" loc="844, -14" />
+				<groupnode type="BSDF_GLOSSY" distribution="SHARP" color="rgba(0.79910, 0.72305, 0.54572, 1.0)" roughness="0.00600" width="200" loc="66, -193" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.0, 0.18806, 0.00080, 1.0)" roughness="0.27000" width="200" loc="60, -27" />
+				<groupnode type="LAYER_WEIGHT" label="Coat Blend" blend="0.0" width="150" loc="162, 101" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="429, 109" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-949, 1" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="966, -14" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Paint Color" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="fl. size" type="VALUE" value="0.0" />
+				<groupinput name="fl. amount" type="VALUE" value="0.0" />
+				<groupinput name="Metal Blend" type="VALUE" value="0.0" />
+				<groupinput name="Brilliance" type="VALUE" value="0.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="11" input="0" from="5" output="0" />
+				<grouplink to="5" input="2" from="0" output="0" />
+				<grouplink to="6" input="0" from="4" output="0" />
+				<grouplink to="1" input="0" from="3" output="0" />
+				<grouplink to="7" input="0" from="10" output="0" />
+				<grouplink to="1" input="1" from="10" output="1" />
+				<grouplink to="2" input="1" from="10" output="2" />
+				<grouplink to="8" input="0" from="10" output="3" />
+				<grouplink to="4" input="1" from="1" output="0" />
+				<grouplink to="4" input="2" from="2" output="0" />
+				<grouplink to="2" input="0" from="1" output="1" />
+				<grouplink to="9" input="0" from="8" output="1" />
+				<grouplink to="9" input="1" from="7" output="0" />
+				<grouplink to="9" input="2" from="6" output="0" />
+				<grouplink to="5" input="1" from="9" output="0" />
+				<grouplink to="5" input="0" from="10" output="4" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

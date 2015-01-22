@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="613, 279" />
+		<node type="GROUP" group="0" edge_refl="0.30000" front_refl="0.25" glass_colour="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.00999" ior="1.45000" noise_size="10.0" width="120" loc="-269, 192" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Irid Glass" id="0">
+			<groupnodes>
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-96, -261" />
+				<groupnode type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="-75, 374" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="202, 113" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="215, -184" />
+				<groupnode type="LAYER_WEIGHT" blend="0.30000" width="150" loc="-312, 399" />
+				<groupnode type="MIX_SHADER" fac="0.25" width="150" loc="496, -42" />
+				<groupnode type="BSDF_GLASS" distribution="BECKMANN" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.0" ior="1.45000" width="150" loc="-91, -399" />
+				<groupnode type="TEX_NOISE" scale="10.0" detail="2.0" distortion="0.0" width="150" loc="-706, -291" />
+				<groupnode type="BSDF_GLASS" distribution="BECKMANN" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.0" ior="1.45000" width="150" loc="-92, -36" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.0, 0.12629, 0.80000, 1.0)" roughness="0.0" width="150" loc="-105, 165" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-828, -121" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="618, -42" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Edge Refl" type="VALUE" value="0.30000" />
+				<groupinput name="Front Refl" type="VALUE" value="0.25" />
+				<groupinput name="Glass Colour" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="Roughness" type="VALUE" value="0.0" />
+				<groupinput name="IOR" type="VALUE" value="1.45000" />
+				<groupinput name="Noise Size" type="VALUE" value="10.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="2" input="1" from="9" output="0" />
+				<grouplink to="2" input="0" from="1" output="0" />
+				<grouplink to="1" input="1" from="4" output="1" />
+				<grouplink to="0" input="0" from="7" output="0" />
+				<grouplink to="2" input="2" from="8" output="0" />
+				<grouplink to="5" input="1" from="2" output="0" />
+				<grouplink to="11" input="0" from="5" output="0" />
+				<grouplink to="3" input="1" from="0" output="0" />
+				<grouplink to="3" input="2" from="6" output="0" />
+				<grouplink to="5" input="2" from="3" output="0" />
+				<grouplink to="4" input="0" from="10" output="0" />
+				<grouplink to="5" input="0" from="10" output="1" />
+				<grouplink to="8" input="0" from="10" output="2" />
+				<grouplink to="6" input="0" from="10" output="2" />
+				<grouplink to="0" input="1" from="10" output="3" />
+				<grouplink to="9" input="1" from="10" output="3" />
+				<grouplink to="8" input="2" from="10" output="4" />
+				<grouplink to="6" input="2" from="10" output="4" />
+				<grouplink to="8" input="1" from="10" output="3" />
+				<grouplink to="6" input="1" from="10" output="3" />
+				<grouplink to="7" input="1" from="10" output="5" />
+				<grouplink to="9" input="0" from="7" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

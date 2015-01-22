@@ -17,7 +17,7 @@ namespace DecoraCsycles.Model
         {
             ShaderList = new Dictionary<string, uint>();
             AddDiffuseShader("Diffuse", Color.LightGray);
-            addEmissionShader("Emission", Color.GreenYellow);
+            addEmissionShader("Emission", Color.White);
         }
 
         private void addEmissionShader(string p, Color clr)
@@ -25,8 +25,8 @@ namespace DecoraCsycles.Model
             var shader = new Shader(Cycles.client, Shader.ShaderType.Material) { Name = p };
 
             var emission_node = new EmissionNode();
-            emission_node.ins.Color.Value = new float4((float)clr.R / 255f, (float)clr.G / 255f, (float)clr.B / 255f);
-            emission_node.ins.Strength.Value = 15f;
+            emission_node.ins.Color.Value = new float4(clr.R, clr.G, clr.B);
+            emission_node.ins.Strength.Value = 50f;
 
             shader.AddNode(emission_node);
             emission_node.outputs.Socket("Emission").Connect(shader.Output.inputs.Socket("surface"));

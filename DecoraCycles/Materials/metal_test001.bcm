@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1167, 363" />
+		<node type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.0" contrast="-0.89999" width="140" loc="944, 288" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="924, 516" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.99829, 1.0, 1.0, 1.0)" roughness="0.10000" width="150" loc="740, 398" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.10000" width="150" loc="703, 616" />
+		<node type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="786, 190" />
+		<node type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="504, 427" />
+		<node type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="292, 630" />
+		<node type="VALTORGB" interpolation="B_SPLINE" fac="0.5" stops="2" stop1="0.34090|rgba(0.0, 0.0, 0.0, 1.0)" stop2="0.78636|rgba(1.0, 1.0, 1.0, 1.0)" width="240" loc="-160, 267" />
+		<node type="TEX_MUSGRAVE" musgrave="FBM" scale="2.0" detail="25.0" dimension="2.0" lacunarity="1.0" offset="0.0" gain="1.0" width="150" loc="-366, 151" />
+		<node type="TEX_NOISE" scale="5.0" detail="2.0" distortion="0.0" width="150" loc="-609, 113" />
+		<node type="INVERT" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="90" loc="24, 447" />
+		<node type="TEX_NOISE" scale="100.0" detail="2.0" distortion="0.0" width="150" loc="-364, 560" />
+	</nodes>
+	<links>
+		<link to="8" input="0" from="9" output="0" />
+		<link to="1" input="0" from="5" output="0" />
+		<link to="5" input="1" from="6" output="0" />
+		<link to="6" input="2" from="8" output="0" />
+		<link to="11" input="1" from="12" output="0" />
+		<link to="7" input="1" from="8" output="0" />
+		<link to="6" input="0" from="7" output="0" />
+		<link to="9" input="0" from="10" output="0" />
+		<link to="0" input="0" from="2" output="0" />
+		<link to="2" input="0" from="6" output="0" />
+		<link to="2" input="1" from="4" output="0" />
+		<link to="2" input="2" from="3" output="0" />
+		<link to="0" input="2" from="1" output="0" />
+		<link to="6" input="1" from="11" output="0" />
+	</links>
+</material>

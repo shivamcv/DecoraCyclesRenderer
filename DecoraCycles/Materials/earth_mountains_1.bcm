@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.61326, 0.43219)" sample_lamp="True">
+	<nodes>
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-262, 441" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.21201, 0.47488, 0.11671, 1.0)" roughness="0.0" width="150" loc="-59, 359" />
+		<node type="GROUP" group="0" cutheight="Vector(0.0, 0.0, 1.09999)" smoothness="0.69999" width="120" loc="-100, 213" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.04410, 0.05898, 0.11786, 1.0)" roughness="0.0" width="150" loc="299, 355" />
+		<node type="GROUP" group="1" width="120" loc="455, 212" />
+		<node type="MATH" operation="POWER" use_clamp="False" value1="0.79999" value2="3.29999" width="120" loc="663, 262" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="729, 530" />
+		<node type="GROUP" group="0" cutheight="Vector(0.0, 0.0, 0.0)" smoothness="0.32999" width="120" loc="142, 166" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.04410, 0.05898, 0.11786, 1.0)" roughness="0.0" width="150" loc="977, 316" />
+		<node type="GROUP" group="0" cutheight="Vector(0.0, 0.0, 0.0)" smoothness="1.0" width="120" loc="669, 118" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="331, 551" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="935, 657" />
+	</nodes>
+	<links>
+		<link to="10" input="2" from="0" output="0" />
+		<link to="10" input="0" from="2" output="0" />
+		<link to="6" input="2" from="10" output="0" />
+		<link to="10" input="1" from="1" output="0" />
+		<link to="6" input="0" from="7" output="0" />
+		<link to="6" input="1" from="3" output="0" />
+		<link to="5" input="0" from="4" output="0" />
+		<link to="8" input="0" from="9" output="0" />
+		<link to="11" input="0" from="6" output="0" />
+	</links>
+	<groups>
+		<group name="HeightMask" id="0">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" hide="True" width="42" loc="-296, 43" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, 1.0)" width="80" loc="24, 73" />
+				<groupnode type="VECT_MATH" operation="SUBTRACT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, -1.99999)" width="80" loc="-96, 73" />
+				<groupnode type="MATH" operation="MINIMUM" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="576, 27" />
+				<groupnode type="MATH" operation="MAXIMUM" use_clamp="False" value1="0.0" value2="0.0" width="120" loc="476, 44" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="72, -57" />
+				<groupnode type="MATH" operation="POWER" use_clamp="False" value1="0.5" value2="2.30000" width="120" loc="369, 39" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="0.5" value2="-0.40999" width="120" loc="249, 3" />
+				<groupnode type="MATH" operation="DIVIDE" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="-218, -93" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-340, -9" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="698, 27" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="CutHeight" type="VECTOR" value="Vector(0.0, 0.0, 0.0)" />
+				<groupinput name="Smoothness" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="1" input="0" from="2" output="0" />
+				<grouplink to="5" input="0" from="1" output="1" />
+				<grouplink to="5" input="1" from="8" output="0" />
+				<grouplink to="2" input="0" from="0" output="0" />
+				<grouplink to="2" input="1" from="9" output="0" />
+				<grouplink to="7" input="0" from="5" output="0" />
+				<grouplink to="10" input="0" from="3" output="0" />
+				<grouplink to="3" input="0" from="4" output="0" />
+				<grouplink to="4" input="0" from="6" output="0" />
+				<grouplink to="6" input="0" from="7" output="0" />
+				<grouplink to="8" input="1" from="9" output="1" />
+			</grouplinks>
+		</group>
+		<group name="SlopeMask" id="1">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" width="120" loc="-85, 3" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, 1.0)" width="80" loc="85, -3" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="207, -3" />
+			</groupnodes>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="2" input="0" from="1" output="1" />
+				<grouplink to="1" input="0" from="0" output="1" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="False">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="334, 287" />
+		<node type="GROUP" group="0" roughness="0.05000" clarity="0.34999" color_1="rgba(0.77942, 0.86935, 1.0, 1.0)" color_2="rgba(1.0, 0.90754, 0.99431, 1.0)" colour_mixing="1.79999" brightness="rgba(0.31400, 0.31400, 0.31400, 1.0)" width="120" loc="64, 293" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Lalique" id="0">
+			<groupnodes>
+				<groupnode type="FRESNEL" ior="1.79999" width="150" loc="-393, 145" />
+				<groupnode type="BSDF_GLASS" distribution="BECKMANN" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.10000" ior="1.45000" width="150" loc="160, -215" />
+				<groupnode type="MIX_SHADER" fac="0.34999" width="150" loc="387, -105" />
+				<groupnode type="ADD_SHADER" width="150" loc="-829, -263" />
+				<groupnode type="BSDF_TRANSLUCENT" color="rgba(0.77942, 0.86935, 1.0, 1.0)" width="150" loc="-352, 44" />
+				<groupnode type="BSDF_TRANSLUCENT" color="rgba(1.0, 0.90754, 0.99431, 1.0)" width="150" loc="-342, -44" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="-101, 119" />
+				<groupnode type="ADD_SHADER" width="150" loc="162, 133" />
+				<groupnode type="BSDF_TRANSLUCENT" color="rgba(0.31400, 0.31400, 0.31400, 1.0)" width="150" loc="-500, -232" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-622, -68" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="509, -105" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Roughness" type="VALUE" value="0.10000" />
+				<groupinput name="Clarity" type="VALUE" value="0.34999" />
+				<groupinput name="Color 1" type="RGBA" value="rgba(0.77942, 0.86935, 1.0, 1.0)" />
+				<groupinput name="Color 2" type="RGBA" value="rgba(1.0, 0.90754, 0.99431, 1.0)" />
+				<groupinput name="Colour Mixing" type="VALUE" value="1.79999" />
+				<groupinput name="Brightness" type="RGBA" value="rgba(0.31400, 0.31400, 0.31400, 1.0)" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="6" input="0" from="0" output="0" />
+				<grouplink to="10" input="0" from="2" output="0" />
+				<grouplink to="2" input="2" from="1" output="0" />
+				<grouplink to="6" input="1" from="4" output="0" />
+				<grouplink to="6" input="2" from="5" output="0" />
+				<grouplink to="1" input="1" from="9" output="0" />
+				<grouplink to="2" input="0" from="9" output="1" />
+				<grouplink to="4" input="0" from="9" output="2" />
+				<grouplink to="5" input="0" from="9" output="3" />
+				<grouplink to="0" input="0" from="9" output="4" />
+				<grouplink to="7" input="0" from="6" output="0" />
+				<grouplink to="2" input="1" from="7" output="0" />
+				<grouplink to="7" input="1" from="8" output="0" />
+				<grouplink to="8" input="0" from="9" output="5" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

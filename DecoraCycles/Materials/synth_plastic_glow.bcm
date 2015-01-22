@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="-316, 234" />
+		<node type="GROUP" group="0" glow_colour="rgba(0.61361, 1.0, 0.61605, 1.0)" plastic_colour="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.20000" width="120" loc="-1013, 241" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="NodeGroup.003" id="0">
+			<groupnodes>
+				<groupnode type="EMISSION" color="rgba(0.61361, 1.0, 0.61605, 1.0)" strength="0.5" width="150" loc="-151, 165" />
+				<groupnode type="LAYER_WEIGHT" blend="0.5" width="150" loc="-187, -215" />
+				<groupnode type="ADD_SHADER" width="150" loc="158, 77" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="411, -38" />
+				<groupnode type="LIGHT_PATH" width="150" loc="-425, 107" />
+				<groupnode type="BSDF_TRANSLUCENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-160, 24" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.20000" width="150" loc="136, -187" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-282, 0" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="533, -38" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Glow Colour" type="RGBA" value="rgba(0.61361, 1.0, 0.61605, 1.0)" />
+				<groupinput name="Plastic Colour" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="Roughness" type="VALUE" value="0.20000" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="8" input="0" from="3" output="0" />
+				<grouplink to="3" input="2" from="6" output="0" />
+				<grouplink to="2" input="0" from="0" output="0" />
+				<grouplink to="2" input="1" from="5" output="0" />
+				<grouplink to="3" input="1" from="2" output="0" />
+				<grouplink to="6" input="0" from="1" output="1" />
+				<grouplink to="0" input="1" from="4" output="6" />
+				<grouplink to="0" input="0" from="7" output="0" />
+				<grouplink to="5" input="0" from="7" output="1" />
+				<grouplink to="6" input="1" from="7" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

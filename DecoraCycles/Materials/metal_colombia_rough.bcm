@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.58407, 0.31854, 0.04518)" sample_lamp="True">
+	<nodes>
+		<node type="RGB" hide="True" color="rgba(0.90198, 0.51953, 0.04672, 1.0)" width="42" loc="-345, 608" />
+		<node type="RGB" hide="True" color="rgba(1.0, 0.54169, 0.07733, 1.0)" width="42" loc="-345, 563" />
+		<node type="RGB" label="Gold Colombia6" color="rgba(0.52711, 0.24620, 0.03560, 1.0)" width="140" loc="-417, 12" />
+		<node type="RGB" label="Gold Colombia5" color="rgba(0.79910, 0.43415, 0.07227, 1.0)" width="140" loc="-411, 203" />
+		<node type="RGB" label="Gold Colombia3" color="rgba(0.85499, 0.57112, 0.14412, 1.0)" width="140" loc="-403, 395" />
+		<node type="OUTPUT_MATERIAL" width="155" loc="849, 241" />
+		<node type="NEW_GEOMETRY" width="127" loc="-170, 564" />
+		<node type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.5, 0.5, 0.5)" width="140" loc="22, 550" />
+		<node type="MATH" operation="POWER" use_clamp="False" value1="0.5" value2="1.30000" width="150" loc="225, 535" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.10000" width="177" loc="215, 384" />
+		<node type="LAYER_WEIGHT" blend="0.46500" width="150" loc="20, 244" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.04357, 0.04357, 0.04357, 1.0)" roughness="0.07999" width="184" loc="-1, 139" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.07999" width="187" loc="0, 6" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="247, 180" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="461, 348" />
+	</nodes>
+	<links>
+		<link to="5" input="0" from="14" output="0" />
+		<link to="7" input="0" from="6" output="1" />
+		<link to="7" input="1" from="6" output="4" />
+		<link to="8" input="0" from="7" output="1" />
+		<link to="14" input="0" from="8" output="0" />
+		<link to="14" input="1" from="9" output="0" />
+		<link to="13" input="1" from="11" output="0" />
+		<link to="13" input="2" from="12" output="0" />
+		<link to="14" input="2" from="13" output="0" />
+		<link to="13" input="0" from="10" output="1" />
+		<link to="11" input="0" from="4" output="0" />
+		<link to="12" input="0" from="3" output="0" />
+		<link to="9" input="0" from="2" output="0" />
+	</links>
+</material>

@@ -1,9 +1,13 @@
 ﻿using ccl;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace DecoraCsycles.ViewModel
@@ -15,7 +19,16 @@ namespace DecoraCsycles.ViewModel
       
         public MainViewModel()
         {
+            //
+            //uint id =0;
+            //new DecoraCsycles.Model.CyclesShader().GetMaterial("Materials/Diffuse.bcm", ref id);
+            //
+
+
             _navigationService = ServiceLocator.Current.GetInstance<HelperClasses.INavigationService>();
+            CameraView = Transform.Translate(new float4(0, 0, -800));
+
+            MaterialList =  Directory.GetFiles("Materials").ToList();
         }
 
         private RelayCommand<string> navigate;
@@ -34,6 +47,17 @@ namespace DecoraCsycles.ViewModel
         {
             rotate,scale,translate
         }
+
+        private string finalView;
+
+        public string FinalView
+        {
+            get { return finalView; }
+            set { finalView = value;
+            RaisePropertyChanged("FinalView");
+            }
+        }
+        
 
         public string Translate { get; set; }
 
@@ -81,5 +105,56 @@ namespace DecoraCsycles.ViewModel
         }
 
         public Transform CameraView { get; set; }
+
+        public List<string>  MaterialList { get; set; }
+
+        private string selectedMaterial;
+
+        public string SelectedMaterial
+        {
+            get { return selectedMaterial; }
+            set { selectedMaterial = value;
+            RaisePropertyChanged("SelectedMaterial");
+            MaterialText = File.ReadAllText(selectedMaterial);
+            }
+        }
+
+        private string materialText;
+
+        public string MaterialText
+        {
+            get { return materialText; }
+            set { materialText = value;
+            RaisePropertyChanged("MaterialText");
+            }
+        }
+
+        private RelayCommand applyMaterial;
+
+        public RelayCommand ApplyMaterial
+        {
+            get
+            {
+                return applyMaterial ?? (applyMaterial = new RelayCommand(() =>
+                    {
+                          Task<int>.Factory.StartNew(SimpleIoc.Default.GetInstance<ConnectionViewModel>().loadDefaultData, SelectedMaterial);
+                    }));
+            }
+        }
+
+
+        private RelayCommand render;
+
+        public RelayCommand Render
+        {
+            get
+            {
+                return render ?? (render = new RelayCommand(() =>
+                    {
+                        Task<int>.Factory.StartNew(SimpleIoc.Default.GetInstance<ConnectionViewModel>().loadDefaultData, null);
+                    }));
+            }
+        }
+        
     }
 }

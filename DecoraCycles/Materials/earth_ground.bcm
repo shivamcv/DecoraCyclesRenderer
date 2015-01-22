@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="FRESNEL" ior="1.35000" width="150" loc="-145, 475" />
+		<node type="MATH" operation="MINIMUM" use_clamp="False" value1="0.5" value2="1.0" width="120" loc="-321, 130" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.76717, 0.76717, 0.76717, 1.0)" roughness="0.10000" width="150" loc="-150, 165" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.45786, 0.41153, 0.32594, 1.0)" roughness="0.0" width="150" loc="-148, 327" />
+		<node type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.20000" width="120" loc="-513, 126" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="63, 327" />
+		<node type="TEX_CHECKER" color1="rgba(0.80000, 0.80000, 0.80000, 1.0)" color2="rgba(0.20000, 0.20000, 0.20000, 1.0)" scale="5.0" width="150" loc="-781, 160" />
+		<node type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(0.05000, 0.05000, 0.05000)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="-1174, 217" />
+		<node type="NEW_GEOMETRY" width="120" loc="-1439, 350" />
+		<node type="VECT_MATH" operation="NORMALIZE" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.5, 0.5, 0.5)" width="140" loc="-975, 593" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="356, 302" />
+		<node type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="72, 120" />
+		<node type="MATH" operation="MINIMUM" use_clamp="False" value1="0.5" value2="1.0" width="120" loc="17, 643" />
+		<node type="MATH" operation="MINIMUM" use_clamp="False" value1="0.5" value2="1.0" width="120" loc="-117, 809" />
+		<node type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="25, 804" />
+		<node type="MATH" operation="POWER" use_clamp="False" value1="2.71799" value2="1.0" width="120" loc="-271, 807" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="2.71799" value2="-0.00100" width="120" loc="-412, 808" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="2.71799" value2="0.00249" width="120" loc="-409, 659" />
+		<node type="TEX_VORONOI" coloring="CELLS" scale="10.0" width="150" loc="-780, -28" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="748, 173" />
+		<node type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="-519, -50" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="120" loc="-320, -57" />
+	</nodes>
+	<links>
+		<link to="5" input="1" from="3" output="0" />
+		<link to="7" input="0" from="8" output="0" />
+		<link to="10" input="1" from="5" output="0" />
+		<link to="5" input="2" from="2" output="0" />
+		<link to="5" input="0" from="0" output="0" />
+		<link to="1" input="0" from="4" output="0" />
+		<link to="2" input="1" from="1" output="0" />
+		<link to="19" input="0" from="10" output="0" />
+		<link to="13" input="0" from="15" output="0" />
+		<link to="15" input="1" from="16" output="0" />
+		<link to="10" input="2" from="11" output="0" />
+		<link to="12" input="0" from="17" output="0" />
+		<link to="14" input="1" from="13" output="0" />
+		<link to="10" input="0" from="12" output="0" />
+		<link to="18" input="0" from="7" output="0" />
+		<link to="20" input="0" from="18" output="1" />
+		<link to="4" input="0" from="18" output="1" />
+		<link to="21" input="0" from="20" output="0" />
+		<link to="19" input="2" from="21" output="0" />
+		<link to="9" input="0" from="8" output="0" />
+		<link to="17" input="0" from="9" output="1" />
+	</links>
+</material>

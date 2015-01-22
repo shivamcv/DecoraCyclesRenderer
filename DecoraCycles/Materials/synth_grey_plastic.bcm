@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="NEW_GEOMETRY" width="120" loc="-318, 330" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.81775, 0.00510, 0.0, 1.0)" roughness="0.0" width="150" loc="65, 124" />
+		<node type="BSDF_GLASS" distribution="BECKMANN" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" ior="1.50000" width="150" loc="70, 275" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="616, 385" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="347, 368" />
+		<node type="MATH" operation="MAXIMUM" use_clamp="False" value1="0.5" value2="0.0" width="120" loc="95, 417" />
+		<node type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, 1.0)" width="80" loc="-90, 354" />
+	</nodes>
+	<links>
+		<link to="6" input="0" from="0" output="1" />
+		<link to="3" input="0" from="4" output="0" />
+		<link to="5" input="0" from="6" output="1" />
+		<link to="4" input="1" from="2" output="0" />
+		<link to="4" input="2" from="1" output="0" />
+		<link to="4" input="0" from="5" output="0" />
+	</links>
+</material>

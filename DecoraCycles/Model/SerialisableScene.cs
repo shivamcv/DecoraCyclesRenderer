@@ -21,6 +21,7 @@ namespace DecoraCsycles
             MeshCount = info.GetInt32("MeshCount");
             CameraPosition = (float[])info.GetValue("CameraPosition", typeof(float[]));
             CameraRotation = (float[])info.GetValue("CameraRotation", typeof(float[]));
+            CameraScale = (float[])info.GetValue("CameraScale", typeof(float[]));
         }
 
         private Transform stringToTransform(string p)
@@ -36,6 +37,7 @@ namespace DecoraCsycles
         }
         public int MeshCount { get; set; }
 
+        public float[] CameraScale { get; set; }
         public Transform View { get; set; }
         public float[] CameraRotation { get; set; }
         public float[] CameraPosition { get; set; }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="GROUP" group="0" diffuse="rgba(0.80000, 0.80000, 0.80000, 0.45925)" alpha="rgba(1.0, 1.0, 1.0, 0.28888)" multiply="0.11816" width="120" loc="130, 300" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Diff-Alpha" id="0">
+			<groupnodes>
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="95, 133" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-89, 36" />
+				<groupnode type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-89, 112" />
+				<groupnode type="GROUP"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="120" loc="-89, 238" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-211, 170" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="217, 133" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Diffuse" type="RGBA" value="rgba(0.80000, 0.80000, 0.80000, 1.0)" />
+				<groupinput name="Alpha" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="Multiply" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Output" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="2" from="1" output="0" />
+				<grouplink to="1" input="0" from="4" output="0" />
+				<grouplink to="5" input="0" from="0" output="0" />
+				<grouplink to="0" input="1" from="2" output="0" />
+				<grouplink to="3" input="0" from="4" output="1" />
+				<grouplink to="0" input="0" from="3" output="0" />
+				<grouplink to="3" input="1" from="4" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="GROUP" group="0" color="rgba(1.0, 0.0, 0.0, 1.0)" brightness="30.0" color_ratio="0.89999" width="120" loc="73, 250" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="Blaster Bolt" id="0">
+			<groupnodes>
+				<groupnode type="EMISSION" color="rgba(1.0, 0.0, 0.0, 1.0)" strength="30.0" width="150" loc="-90, -25" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="169, 57" />
+				<groupnode type="LAYER_WEIGHT" blend="0.5" width="150" loc="-96, 187" />
+				<groupnode type="EMISSION" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" strength="30.0" width="150" loc="-91, 81" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-218, 54" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="291, 57" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color" type="RGBA" value="rgba(1.0, 0.0, 0.0, 1.0)" />
+				<groupinput name="Brightness" type="VALUE" value="30.0" />
+				<groupinput name="Color Ratio" type="VALUE" value="0.5" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="1" input="0" from="2" output="1" />
+				<grouplink to="5" input="0" from="1" output="0" />
+				<grouplink to="0" input="0" from="4" output="0" />
+				<grouplink to="2" input="0" from="4" output="2" />
+				<grouplink to="3" input="1" from="4" output="1" />
+				<grouplink to="0" input="1" from="4" output="1" />
+				<grouplink to="1" input="1" from="3" output="0" />
+				<grouplink to="1" input="2" from="0" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="-152, 347" />
+		<node type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.80000, 0.47343, 0.13339, 1.0)" roughness="0.30000" width="150" loc="-367, 179" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.14075, 0.77752, 0.80000, 1.0)" roughness="0.0" width="150" loc="-371, 277" />
+		<node type="GROUP" group="0" fresnel_strength="0.15000" fresnel_contrast="3.0" blendmix="0.49999" width="200" loc="-744, 490" />
+	</nodes>
+	<links>
+		<link to="1" input="1" from="3" output="0" />
+		<link to="1" input="2" from="2" output="0" />
+		<link to="0" input="0" from="1" output="0" />
+		<link to="1" input="0" from="4" output="0" />
+	</links>
+	<groups>
+		<group name="Super_Fresnel" id="0">
+			<groupnodes>
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-136, 497" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="2.60770" width="120" loc="-373, 529" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="1.00000" width="120" loc="-380, 370" />
+				<groupnode type="LAYER_WEIGHT" blend="0.5" width="150" loc="-749, 550" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.00000" value2="1.00000" width="120" loc="-730, 176" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="2.60770" value2="1.00000" width="120" loc="-734, 414" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="49, 313" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="249, 262" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.0, 0.0, 0.0, 1.0)" color2="rgba(1.0, 1.0, 1.0, 1.0)" width="100" loc="473, 363" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-856, 291" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="595, 363" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Fresnel_strength" type="VALUE" value="0.5" />
+				<groupinput name="Fresnel_contrast" type="VALUE" value="0.5" />
+				<groupinput name="BlendMix" type="VALUE" value="0.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="RGBA" value="rgba(0.0, 0.0, -2147483648.0, 2147483648.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="7" input="0" from="6" output="0" />
+				<grouplink to="6" input="1" from="9" output="0" />
+				<grouplink to="7" input="1" from="9" output="1" />
+				<grouplink to="1" input="0" from="3" output="0" />
+				<grouplink to="2" input="0" from="3" output="1" />
+				<grouplink to="0" input="0" from="1" output="0" />
+				<grouplink to="0" input="1" from="2" output="0" />
+				<grouplink to="6" input="0" from="0" output="0" />
+				<grouplink to="1" input="1" from="5" output="0" />
+				<grouplink to="2" input="1" from="4" output="0" />
+				<grouplink to="4" input="0" from="9" output="2" />
+				<grouplink to="5" input="0" from="9" output="2" />
+				<grouplink to="8" input="0" from="7" output="0" />
+				<grouplink to="10" input="0" from="8" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

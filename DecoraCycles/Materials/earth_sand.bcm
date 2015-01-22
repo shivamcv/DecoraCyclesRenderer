@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="914, 476" />
+		<node type="GROUP" group="0" color_1="rgba(0.80000, 0.65901, 0.50392, 1.0)" _color_2="rgba(0.52112, 0.51345, 0.33464, 1.0)" displacement_hight="0.34999" waves_scale="3.0" smooth_scale="5.0" small_waves_scale="25.0" width="200" loc="565, 468" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+		<link to="0" input="2" from="1" output="1" />
+	</links>
+	<groups>
+		<group name="Sand" id="0">
+			<groupnodes>
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-232, -270" />
+				<groupnode type="TEX_NOISE" scale="5.0" detail="10.0" distortion="0.0" width="150" loc="-362, -1" />
+				<groupnode type="BRIGHTCONTRAST" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="-0.25" contrast="1.0" width="140" loc="-55, 0" />
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="25.0" distortion="15.0" detail="1.0" detail_scale="5.0" width="150" loc="18, -402" />
+				<groupnode type="HUE_SAT" hue="0.5" saturation="1.0" value="10.0" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="150" loc="-447, -472" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.55641, 0.54823, 0.35730, 1.0)" roughness="0.0" width="150" loc="-6, 186" />
+				<groupnode type="TEX_NOISE" scale="5.0" detail="5.0" distortion="0.0" width="150" loc="-6, 487" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="308, 307" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.80000, 0.78917, 0.51463, 1.0)" roughness="0.0" width="150" loc="-10, 300" />
+				<groupnode type="HUE_SAT" hue="0.5" saturation="0.0" value="0.25" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="150" loc="608, 3" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="429, 48" />
+				<groupnode type="TEX_WAVE" wave="BANDS" scale="3.0" distortion="25.0" detail="10.0" detail_scale="1.0" width="150" loc="-652, -266" />
+				<groupnode type="TEX_NOISE" scale="5.0" detail="10.0" distortion="0.5" width="150" loc="-657, -487" />
+				<groupnode type="HUE_SAT" hue="0.5" saturation="1.0" value="0.10000" fac="1.0" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" width="150" loc="212, -218" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-779, -110" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="730, 155" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Color 1" type="RGBA" value="rgba(0.80000, 0.78917, 0.51463, 1.0)" />
+				<groupinput name=" Color 2" type="RGBA" value="rgba(0.55641, 0.54823, 0.35730, 1.0)" />
+				<groupinput name="Displacement hight" type="VALUE" value="0.25" />
+				<groupinput name="Waves scale" type="VALUE" value="3.0" />
+				<groupinput name="Smooth scale" type="VALUE" value="5.0" />
+				<groupinput name="Small waves scale" type="VALUE" value="25.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+				<groupoutput name="Color" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="1" from="11" output="1" />
+				<grouplink to="4" input="4" from="12" output="1" />
+				<grouplink to="0" input="2" from="4" output="0" />
+				<grouplink to="7" input="1" from="8" output="0" />
+				<grouplink to="10" input="1" from="0" output="0" />
+				<grouplink to="2" input="0" from="1" output="1" />
+				<grouplink to="10" input="0" from="2" output="0" />
+				<grouplink to="13" input="4" from="3" output="1" />
+				<grouplink to="10" input="2" from="13" output="0" />
+				<grouplink to="7" input="0" from="6" output="1" />
+				<grouplink to="7" input="2" from="5" output="0" />
+				<grouplink to="15" input="0" from="7" output="0" />
+				<grouplink to="15" input="1" from="9" output="0" />
+				<grouplink to="8" input="0" from="14" output="0" />
+				<grouplink to="5" input="0" from="14" output="1" />
+				<grouplink to="9" input="2" from="14" output="2" />
+				<grouplink to="11" input="1" from="14" output="3" />
+				<grouplink to="12" input="1" from="14" output="4" />
+				<grouplink to="9" input="4" from="10" output="0" />
+				<grouplink to="3" input="1" from="14" output="5" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

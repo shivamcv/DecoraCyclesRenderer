@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="False">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1149, 129" />
+		<node type="FRESNEL" ior="2.41700" width="150" loc="552, 319" />
+		<node type="MIX_SHADER" fac="0.5" width="150" loc="941, 240" />
+		<node type="BSDF_GLASS" distribution="SHARP" color="rgba(1.0, 1.0, 1.0, 1.0)" roughness="0.0" ior="2.41700" width="150" loc="543, 233" />
+		<node type="GROUP" group="0" value="0.08799" ior="2.41700" width="200" loc="231, 25" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="2.0" width="120" loc="20, 32" />
+		<node type="GROUP" group="1" colour="rgba(1.0, 1.0, 1.0, 1.0)" roughness(disabled)="0.0" ior="2.41700" dispersion="1.44159" width="200" loc="545, 63" />
+		<node type="MATH" operation="LESS_THAN" use_clamp="False" value1="0.5" value2="1.0" width="120" loc="754, 351" />
+		<node type="VALUE" value="2.41599" width="120" loc="-284, 209" />
+		<node type="VALUE" value="0.04399" width="120" loc="-286, -161" />
+		<node type="RGB" color="rgba(1.0, 1.0, 1.0, 1.0)" width="140" loc="-303, 543" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="2" output="0" />
+		<link to="2" input="1" from="3" output="0" />
+		<link to="2" input="0" from="7" output="0" />
+		<link to="6" input="2" from="4" output="0" />
+		<link to="7" input="0" from="1" output="0" />
+		<link to="2" input="2" from="6" output="0" />
+		<link to="3" input="2" from="8" output="0" />
+		<link to="4" input="1" from="8" output="0" />
+		<link to="1" input="0" from="8" output="0" />
+		<link to="3" input="0" from="10" output="0" />
+		<link to="6" input="0" from="10" output="0" />
+		<link to="6" input="3" from="9" output="0" />
+		<link to="5" input="0" from="9" output="0" />
+		<link to="4" input="0" from="5" output="0" />
+	</links>
+	<groups>
+		<group name="Noise" id="0">
+			<groupnodes>
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="-71, 67" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="1.64400" width="120" loc="109, 37" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="2.41700" value2="0.0" width="120" loc="274, -9" />
+				<groupnode type="TEX_NOISE" scale="1000.0" detail="1.0" distortion="0.0" width="150" loc="-276, 65" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-12, 13" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="396, -9" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Value" type="VALUE" value="1.64400" />
+				<groupinput name="IOR" type="VALUE" value="2.41700" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="0" from="3" output="1" />
+				<grouplink to="5" input="0" from="2" output="0" />
+				<grouplink to="1" input="0" from="0" output="0" />
+				<grouplink to="2" input="1" from="1" output="0" />
+				<grouplink to="1" input="1" from="4" output="0" />
+				<grouplink to="2" input="0" from="4" output="1" />
+			</grouplinks>
+		</group>
+		<group name="BasicDiamond" id="1">
+			<groupnodes>
+				<groupnode type="ADD_SHADER" width="150" loc="342, -115" />
+				<groupnode type="ADD_SHADER" width="150" loc="154, 53" />
+				<groupnode type="BSDF_GLASS" distribution="SHARP" color="rgba(0.0, 0.0, 1.0, 1.0)" roughness="0.0" ior="2.41599" width="150" loc="-45, -43" />
+				<groupnode type="BSDF_GLASS" distribution="SHARP" color="rgba(0.0, 1.0, 0.0, 1.0)" roughness="0.0" ior="3.40000" width="150" loc="-41, -212" />
+				<groupnode type="BSDF_GLASS" distribution="SHARP" color="rgba(1.0, 0.0, 0.0, 1.0)" roughness="0.0" ior="1.44355" width="150" loc="-45, 137" />
+				<groupnode type="COMBRGB" hide="True" red="0.0" green="0.0" blue="0.0" width="42" loc="-147, -238" />
+				<groupnode type="COMBRGB" hide="True" red="0.0" green="0.0" blue="0.0" width="42" loc="-154, -97" />
+				<groupnode type="COMBRGB" hide="True" red="0.0" green="0.0" blue="0.0" width="42" loc="-154, 72" />
+				<groupnode type="MATH" hide="True" operation="SUBTRACT" use_clamp="False" value1="0.5" value2="0.5" width="42" loc="-157, 8" />
+				<groupnode type="MATH" hide="True" operation="ADD" use_clamp="False" value1="0.5" value2="0.5" width="42" loc="-147, -338" />
+				<groupnode type="SEPRGB" image="rgba(1.0, 1.0, 1.0, 1.0)" width="80" loc="-343, 93" />
+				<groupnode type="MATH" hide="True" operation="DIVIDE" use_clamp="False" value1="0.04399" value2="2.0" width="42" loc="-392, -281" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-514, -84" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="464, -115" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Colour" type="RGBA" value="rgba(1.0, 1.0, 1.0, 1.0)" />
+				<groupinput name="Roughness(Disabled)" type="VALUE" value="0.0" />
+				<groupinput name="IOR" type="VALUE" value="1.0" />
+				<groupinput name="Dispersion" type="VALUE" value="0.04399" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="0" from="1" output="0" />
+				<grouplink to="1" input="0" from="4" output="0" />
+				<grouplink to="0" input="1" from="3" output="0" />
+				<grouplink to="1" input="1" from="2" output="0" />
+				<grouplink to="13" input="0" from="0" output="0" />
+				<grouplink to="4" input="0" from="7" output="0" />
+				<grouplink to="2" input="0" from="6" output="0" />
+				<grouplink to="3" input="0" from="5" output="0" />
+				<grouplink to="7" input="0" from="10" output="0" />
+				<grouplink to="6" input="1" from="10" output="1" />
+				<grouplink to="5" input="2" from="10" output="2" />
+				<grouplink to="10" input="0" from="12" output="0" />
+				<grouplink to="4" input="1" from="12" output="1" />
+				<grouplink to="2" input="1" from="12" output="1" />
+				<grouplink to="3" input="1" from="12" output="1" />
+				<grouplink to="9" input="1" from="11" output="0" />
+				<grouplink to="9" input="0" from="12" output="2" />
+				<grouplink to="8" input="1" from="11" output="0" />
+				<grouplink to="8" input="0" from="12" output="2" />
+				<grouplink to="3" input="2" from="9" output="0" />
+				<grouplink to="4" input="2" from="8" output="0" />
+				<grouplink to="2" input="2" from="12" output="2" />
+				<grouplink to="11" input="0" from="12" output="3" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

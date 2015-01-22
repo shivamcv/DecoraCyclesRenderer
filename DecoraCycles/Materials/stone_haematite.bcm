@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="1214, 358" />
+		<node type="GROUP" group="0" fleck_1="rgba(0.07092, 0.16557, 0.28448, 1.0)" fleck_2="rgba(0.31448, 0.09621, 0.09221, 1.0)" colour_amount="0.75" fleck_scale="50.0" bloom_colour="rgba(0.22966, 0.22966, 0.22966, 1.0)" fresnel="0.5" bloom_size="0.10000" polished="0.0" width="120" loc="55, 363" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+	</links>
+	<groups>
+		<group name="NodeGroup.005" id="0">
+			<groupnodes>
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.02451, 0.02451, 0.02451, 1.0)" roughness="0.0" width="150" loc="-291, 72" />
+				<groupnode type="BSDF_DIFFUSE" color="rgba(0.0, 0.0, 0.0, 1.0)" roughness="0.0" width="150" loc="-293, -71" />
+				<groupnode type="MIX_SHADER" fac="0.30000" width="150" loc="413, 39" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.57559, 0.57559, 0.57559, 1.0)" roughness="0.0" width="150" loc="561, -219" />
+				<groupnode type="LAYER_WEIGHT" blend="0.5" width="150" loc="535, 219" />
+				<groupnode type="MIX_SHADER" fac="0.10000" width="150" loc="843, 3" />
+				<groupnode type="MIX_SHADER" fac="0.75" width="150" loc="21, 61" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.07092, 0.16557, 0.28448, 1.0)" color2="rgba(0.31448, 0.09621, 0.09221, 1.0)" width="100" loc="-549, 91" />
+				<groupnode type="TEX_VORONOI" coloring="CELLS" scale="50.0" width="150" loc="-831, 181" />
+				<groupnode type="BSDF_GLOSSY" distribution="BECKMANN" color="rgba(0.22966, 0.22966, 0.22966, 1.0)" roughness="0.10000" width="150" loc="177, -137" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-953, 18" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="965, 3" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Fleck 1" type="RGBA" value="rgba(0.07092, 0.16557, 0.28448, 1.0)" />
+				<groupinput name="Fleck 2" type="RGBA" value="rgba(0.31448, 0.09621, 0.09221, 1.0)" />
+				<groupinput name="Colour Amount" type="VALUE" value="0.75" />
+				<groupinput name="Fleck Scale" type="VALUE" value="50.0" />
+				<groupinput name="Bloom Colour" type="RGBA" value="rgba(0.22966, 0.22966, 0.22966, 1.0)" />
+				<groupinput name="Fresnel" type="VALUE" value="0.5" />
+				<groupinput name="Bloom Size" type="VALUE" value="0.10000" />
+				<groupinput name="Polished" type="VALUE" value="0.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Shader" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="6" input="1" from="0" output="0" />
+				<grouplink to="7" input="0" from="8" output="1" />
+				<grouplink to="0" input="0" from="7" output="0" />
+				<grouplink to="2" input="1" from="6" output="0" />
+				<grouplink to="6" input="2" from="1" output="0" />
+				<grouplink to="5" input="1" from="2" output="0" />
+				<grouplink to="11" input="0" from="5" output="0" />
+				<grouplink to="5" input="2" from="3" output="0" />
+				<grouplink to="5" input="0" from="4" output="0" />
+				<grouplink to="2" input="2" from="9" output="0" />
+				<grouplink to="6" input="0" from="10" output="2" />
+				<grouplink to="7" input="1" from="10" output="0" />
+				<grouplink to="7" input="2" from="10" output="1" />
+				<grouplink to="8" input="1" from="10" output="3" />
+				<grouplink to="9" input="0" from="10" output="4" />
+				<grouplink to="4" input="0" from="10" output="5" />
+				<grouplink to="3" input="1" from="10" output="7" />
+				<grouplink to="9" input="1" from="10" output="6" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

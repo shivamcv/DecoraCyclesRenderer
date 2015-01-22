@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.42651, 0.78981, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="300, 300" />
+		<node type="GROUP" group="0" width="120" loc="29, 404" />
+		<node type="BSDF_DIFFUSE" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="150" loc="-239, 407" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+		<link to="1" input="0" from="2" output="0" />
+	</links>
+	<groups>
+		<group name="Remove_Backfaces" id="0">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" width="120" loc="-252, -29" />
+				<groupnode type="MIX_RGB" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="-16, 39" />
+				<groupnode type="BSDF_TRANSPARENT" color="rgba(1.0, 1.0, 1.0, 1.0)" width="150" loc="-14, -159" />
+				<groupnode type="MIX_SHADER" fac="0.5" width="150" loc="252, 159" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="130, 159" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="374, 159" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Input" type="SHADER" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Output" type="SHADER" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="1" input="0" from="0" output="6" />
+				<grouplink to="3" input="0" from="1" output="0" />
+				<grouplink to="3" input="2" from="2" output="0" />
+				<grouplink to="3" input="1" from="4" output="0" />
+				<grouplink to="5" input="0" from="3" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

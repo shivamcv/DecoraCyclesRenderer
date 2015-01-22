@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="OUTPUT_MATERIAL" width="120" loc="757, 398" />
+		<node type="MIX_SHADER" fac="0.0" width="150" loc="537, 408" />
+		<node type="BSDF_TRANSPARENT" color="rgba(0.94999, 0.94999, 0.94999, 1.0)" width="150" loc="294, 363" />
+		<node type="BSDF_GLOSSY" distribution="GGX" color="rgba(0.94999, 0.94999, 0.94999, 1.0)" roughness="0.0" width="150" loc="292, 282" />
+		<node type="GROUP" group="0" refzero="0.01999" contrast="2.0" strength="1.0" width="150" loc="291, 514" />
+	</nodes>
+	<links>
+		<link to="0" input="0" from="1" output="0" />
+		<link to="1" input="1" from="2" output="0" />
+		<link to="1" input="0" from="4" output="0" />
+		<link to="1" input="2" from="3" output="0" />
+	</links>
+	<groups>
+		<group name="Schlick" id="0">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" width="96" loc="-327, -164" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.5, 0.5, 0.5)" width="75" loc="-203, -138" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="0.5" width="110" loc="-101, -83" />
+				<groupnode type="MATH" operation="POWER" use_clamp="False" value1="1.0" value2="1.0" width="110" loc="48, -75" />
+				<groupnode type="MATH" operation="MAXIMUM" use_clamp="False" value1="1.0" value2="0.0" width="110" loc="-324, 75" />
+				<groupnode type="MATH" operation="MINIMUM" use_clamp="False" value1="1.0" value2="1.0" width="110" loc="-186, 78" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="1.0" value2="0.5" width="110" loc="58, 59" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="0.5" width="110" loc="198, 31" />
+				<groupnode type="MATH" operation="ADD" use_clamp="False" value1="1.0" value2="0.5" width="110" loc="327, 164" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="1.0" value2="1.0" width="110" loc="491, 77" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-446, 25" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="613, 77" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="RefZero" type="VALUE" value="0.5" />
+				<groupinput name="Contrast" type="VALUE" value="1.0" />
+				<groupinput name="Strength" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="1" input="0" from="0" output="1" />
+				<grouplink to="1" input="1" from="0" output="4" />
+				<grouplink to="2" input="1" from="1" output="1" />
+				<grouplink to="3" input="0" from="2" output="0" />
+				<grouplink to="7" input="0" from="6" output="0" />
+				<grouplink to="7" input="1" from="3" output="0" />
+				<grouplink to="8" input="1" from="7" output="0" />
+				<grouplink to="3" input="1" from="10" output="1" />
+				<grouplink to="4" input="0" from="10" output="0" />
+				<grouplink to="5" input="0" from="4" output="0" />
+				<grouplink to="6" input="1" from="5" output="0" />
+				<grouplink to="8" input="0" from="5" output="0" />
+				<grouplink to="9" input="0" from="8" output="0" />
+				<grouplink to="11" input="0" from="9" output="0" />
+				<grouplink to="9" input="1" from="10" output="2" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>

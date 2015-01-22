@@ -33,11 +33,20 @@
                     <CheckBox IsChecked="{Binding Source={StaticResource Locator}, Path=Connection.SaveOutput}" Content="SaveOuput" />
                 </StackPanel>
 
-                <Expander Header="camera">
+                <Expander  Header="camera">
                     <StackPanel>
                         <TextBox Text="{Binding Translate}"/>
                         <TextBox Text="{Binding Rotate}"/>
                         <Button Content="LoadCamera" Command="{Binding LoadCamera}"/>
+                        <TextBlock Text="{Binding FinalView}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Expander>
+
+                <Expander IsExpanded="True" Header="Material">
+                    <StackPanel>
+                    <ComboBox SelectedIndex="9" ItemsSource="{Binding MaterialList}" SelectedItem="{Binding SelectedMaterial}"/>
+                        <TextBox IsReadOnly="True" Text="{Binding MaterialText}" TextWrapping="NoWrap"/>
+                        <Button Content="Apply Material" Command="{Binding ApplyMaterial}"/>
                     </StackPanel>
                 </Expander>
         </StackPanel>

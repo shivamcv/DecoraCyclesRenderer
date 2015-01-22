@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<material view_color="rgb(0.80000, 0.80000, 0.80000)" sample_lamp="True">
+	<nodes>
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="784, 146" />
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="650, 177" />
+		<node type="MIX_RGB" hide="True" blend_type="SCREEN" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="-277, 618" />
+		<node type="BRIGHTCONTRAST" hide="True" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="0.19000" contrast="-0.39999" width="100" loc="-797, 214" />
+		<node type="GROUP" group="0" width="200" loc="-1079, 155" />
+		<node type="BRIGHTCONTRAST" hide="True" color="rgba(1.0, 1.0, 1.0, 1.0)" bright="-0.24999" contrast="8.19999" width="100" loc="-798, 119" />
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="-293, 243" />
+		<node type="TEX_NOISE" hide="True" scale="36.10000" detail="2.0" distortion="0.0" width="84" loc="-455, 155" />
+		<node type="GROUP" group="1" width="120" loc="-938, 473" />
+		<node type="GROUP" hide="True" group="1" width="42" loc="-125, 521" />
+		<node type="MIX_SHADER" hide="True" fac="0.5" width="42" loc="766, 588" />
+		<node type="GROUP" hide="True" group="2" cutheight="Vector(0.0, 0.0, 0.16999)" smoothness="0.34000" width="100" loc="744, 303" />
+		<node type="MIX_SHADER" hide="True" fac="0.5" width="42" loc="1208, 386" />
+		<node type="GROUP" hide="True" group="3" mask="rgba(0.0, 0.0, 0.0, 1.0)" texture="rgba(0.5, 0.5, 0.5, 1.0)" width="100" loc="919, 256" />
+		<node type="BSDF_DIFFUSE" hide="True" color="rgba(0.05988, 0.06705, 0.09550, 1.0)" roughness="0.0" width="42" loc="969, 384" />
+		<node type="OUTPUT_MATERIAL" width="120" loc="1830, 379" />
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="1179, 312" />
+		<node type="MIX_RGB" hide="True" blend_type="COLOR" use_clamp="False" fac="0.5" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.46707, 0.82429, 0.53950, 1.0)" width="100" loc="706, 379" />
+		<node type="MIX_SHADER" hide="True" fac="0.5" width="42" loc="1430, 273" />
+		<node type="MIX_RGB" hide="True" blend_type="OVERLAY" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="-235, 794" />
+		<node type="BSDF_DIFFUSE" hide="True" color="rgba(0.10211, 0.40183, 0.07690, 1.0)" roughness="0.0" width="42" loc="439, 583" />
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="0.5" color1="rgba(0.18313, 0.5, 0.05743, 1.0)" color2="rgba(0.16357, 0.28212, 0.08748, 1.0)" width="42" loc="160, 504" />
+		<node type="TEX_IMAGE" image="file://G:\home\luke\3d\Textures\Grass\Grass.png" source="FILE" color_space="COLOR" projection="FLAT" projection="FLAT" width="198" loc="-79, 398" />
+		<node type="MIX_RGB" hide="True" blend_type="MIX" use_clamp="False" fac="1.0" color1="rgba(0.50243, 0.50243, 0.50243, 1.0)" color2="rgba(0.0, 0.0, 0.0, 1.0)" width="42" loc="681, 856" />
+		<node type="GROUP" hide="True" group="2" cutheight="Vector(0.0, 0.0, 1.18999)" smoothness="0.69999" width="100" loc="473, 459" />
+		<node type="BSDF_DIFFUSE" hide="True" color="rgba(0.80000, 0.80000, 0.80000, 1.0)" roughness="0.0" width="42" loc="416, 729" />
+		<node type="GAMMA" color="rgba(1.0, 1.0, 1.0, 1.0)" gamma="2.56999" width="140" loc="-347, 449" />
+		<node type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.25" width="120" loc="90, 760" />
+		<node type="MATH" hide="True" operation="GREATER_THAN" use_clamp="False" value1="0.5" value2="0.10000" width="42" loc="614, 266" />
+		<node type="BSDF_GLOSSY" hide="True" distribution="BECKMANN" color="rgba(0.03011, 0.02935, 0.03221, 1.0)" roughness="0.20000" width="42" loc="1195, 215" />
+		<node type="GROUP" group="4" width="120" loc="380, 360" />
+	</nodes>
+	<links>
+		<link to="10" input="2" from="25" output="0" />
+		<link to="12" input="2" from="10" output="0" />
+		<link to="12" input="1" from="14" output="0" />
+		<link to="5" input="0" from="4" output="0" />
+		<link to="12" input="0" from="13" output="0" />
+		<link to="6" input="1" from="7" output="1" />
+		<link to="6" input="2" from="5" output="0" />
+		<link to="17" input="1" from="30" output="0" />
+		<link to="13" input="0" from="11" output="0" />
+		<link to="28" input="0" from="30" output="0" />
+		<link to="1" input="1" from="7" output="1" />
+		<link to="13" input="1" from="0" output="0" />
+		<link to="0" input="2" from="5" output="0" />
+		<link to="0" input="1" from="1" output="0" />
+		<link to="1" input="2" from="28" output="0" />
+		<link to="26" input="0" from="6" output="0" />
+		<link to="3" input="0" from="4" output="0" />
+		<link to="19" input="1" from="3" output="0" />
+		<link to="2" input="2" from="8" output="0" />
+		<link to="10" input="1" from="20" output="0" />
+		<link to="27" input="0" from="2" output="0" />
+		<link to="23" input="2" from="19" output="0" />
+		<link to="10" input="0" from="24" output="0" />
+		<link to="23" input="0" from="24" output="0" />
+		<link to="21" input="1" from="9" output="0" />
+		<link to="20" input="0" from="21" output="0" />
+		<link to="14" input="0" from="17" output="0" />
+		<link to="19" input="2" from="8" output="0" />
+		<link to="15" input="2" from="23" output="0" />
+		<link to="18" input="2" from="12" output="0" />
+		<link to="18" input="1" from="29" output="0" />
+		<link to="16" input="2" from="13" output="0" />
+		<link to="18" input="0" from="16" output="0" />
+		<link to="16" input="1" from="17" output="0" />
+		<link to="15" input="0" from="18" output="0" />
+		<link to="21" input="0" from="26" output="0" />
+		<link to="2" input="1" from="26" output="0" />
+		<link to="21" input="2" from="22" output="0" />
+		<link to="25" input="0" from="27" output="0" />
+	</links>
+	<groups>
+		<group name="SlopeMask.001" id="0">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" width="120" loc="-85, 3" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, 1.0)" width="80" loc="85, -3" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="207, -3" />
+			</groupnodes>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="2" input="0" from="1" output="1" />
+				<grouplink to="1" input="0" from="0" output="1" />
+			</grouplinks>
+		</group>
+		<group name="SlateTexture" id="1">
+			<groupnodes>
+				<groupnode type="TEX_IMAGE" hide="True" image="file://G:\home\luke\3d\BlenderMeeting\CyclesTutorial\Terrain\Textures\Granite-Rocks2.png" source="FILE" color_space="COLOR" projection="FLAT" projection="FLAT" width="42" loc="157, 4" />
+				<groupnode type="MAPPING" hide="True" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(2.35619, 0.0, 0.75049)" scale="Vector(20.0, 20.0, 30.0)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="42" loc="22, 2" />
+				<groupnode type="TEX_COORD" hide="True" dupli="False" width="42" loc="-238, -12" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="279, 4" />
+			</groupnodes>
+			<groupoutputs>
+				<groupoutput name="Color" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="0" from="1" output="0" />
+				<grouplink to="1" input="0" from="2" output="0" />
+				<grouplink to="3" input="0" from="0" output="0" />
+			</grouplinks>
+		</group>
+		<group name="HeightMask.001" id="2">
+			<groupnodes>
+				<groupnode type="NEW_GEOMETRY" hide="True" width="42" loc="-296, 43" />
+				<groupnode type="VECT_MATH" operation="DOT_PRODUCT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, 1.0)" width="80" loc="24, 73" />
+				<groupnode type="VECT_MATH" operation="SUBTRACT" vector1="Vector(0.5, 0.5, 0.5)" vector2="Vector(0.0, 0.0, -1.99999)" width="80" loc="-96, 73" />
+				<groupnode type="MATH" operation="MINIMUM" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="576, 27" />
+				<groupnode type="MATH" operation="MAXIMUM" use_clamp="False" value1="0.0" value2="0.0" width="120" loc="476, 44" />
+				<groupnode type="MATH" operation="MULTIPLY" use_clamp="False" value1="0.5" value2="0.5" width="120" loc="72, -57" />
+				<groupnode type="MATH" operation="POWER" use_clamp="False" value1="0.5" value2="2.30000" width="120" loc="369, 39" />
+				<groupnode type="MATH" operation="SUBTRACT" use_clamp="False" value1="0.5" value2="-0.73999" width="120" loc="249, 3" />
+				<groupnode type="MATH" operation="DIVIDE" use_clamp="False" value1="1.0" value2="1.0" width="120" loc="-218, -93" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-340, -9" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="698, 27" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="CutHeight" type="VECTOR" value="Vector(0.0, 0.0, 0.0)" />
+				<groupinput name="Smoothness" type="VALUE" value="1.0" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Value" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="1" input="0" from="2" output="0" />
+				<grouplink to="5" input="0" from="1" output="1" />
+				<grouplink to="5" input="1" from="8" output="0" />
+				<grouplink to="2" input="0" from="0" output="0" />
+				<grouplink to="2" input="1" from="9" output="0" />
+				<grouplink to="7" input="0" from="5" output="0" />
+				<grouplink to="10" input="0" from="3" output="0" />
+				<grouplink to="3" input="0" from="4" output="0" />
+				<grouplink to="4" input="0" from="6" output="0" />
+				<grouplink to="6" input="0" from="7" output="0" />
+				<grouplink to="8" input="1" from="9" output="1" />
+			</grouplinks>
+		</group>
+		<group name="TextureMiddle" id="3">
+			<groupnodes>
+				<groupnode type="INVERT" hide="True" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="42" loc="64, -46" />
+				<groupnode type="INVERT" hide="True" fac="1.0" color="rgba(0.0, 0.0, 0.0, 1.0)" width="42" loc="97, -96" />
+				<groupnode type="MIX_RGB" hide="True" blend_type="ADD" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="277, -48" />
+				<groupnode type="MATH" hide="True" operation="MAXIMUM" use_clamp="False" value1="0.5" value2="0.0" width="24" loc="514, -54" />
+				<groupnode type="MATH" hide="True" operation="MINIMUM" use_clamp="False" value1="0.5" value2="1.0" width="23" loc="405, -52" />
+				<groupnode type="MIX_RGB" hide="True" blend_type="MULTIPLY" use_clamp="False" fac="1.0" color1="rgba(0.5, 0.5, 0.5, 1.0)" color2="rgba(0.5, 0.5, 0.5, 1.0)" width="42" loc="233, -125" />
+				<groupnode type="GROUP_INPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="-57, -82" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="636, -54" />
+			</groupnodes>
+			<groupinputs>
+				<groupinput name="Mask" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+				<groupinput name="Texture" type="RGBA" value="rgba(0.5, 0.5, 0.5, 1.0)" />
+			</groupinputs>
+			<groupoutputs>
+				<groupoutput name="Color" type="VALUE" value="0.0" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="1" from="6" output="0" />
+				<grouplink to="5" input="2" from="6" output="1" />
+				<grouplink to="2" input="2" from="5" output="0" />
+				<grouplink to="2" input="0" from="0" output="0" />
+				<grouplink to="5" input="1" from="1" output="0" />
+				<grouplink to="2" input="1" from="6" output="0" />
+				<grouplink to="1" input="1" from="6" output="0" />
+				<grouplink to="1" input="0" from="6" output="0" />
+				<grouplink to="4" input="0" from="2" output="0" />
+				<grouplink to="3" input="0" from="4" output="0" />
+				<grouplink to="7" input="0" from="3" output="0" />
+			</grouplinks>
+		</group>
+		<group name="LakeRockTexture" id="4">
+			<groupnodes>
+				<groupnode type="TEX_IMAGE" hide="True" image="file://G:\home\luke\3d\BlenderMeeting\CyclesTutorial\Terrain\Textures\Granite-Rocks.png" source="FILE" color_space="COLOR" projection="FLAT" projection="FLAT" width="42" loc="130, -4" />
+				<groupnode type="TEX_COORD" hide="True" dupli="False" width="42" loc="-130, -13" />
+				<groupnode type="MAPPING" translation="Vector(0.0, 0.0, 0.0)" rotation="Vector(0.0, 0.0, 0.0)" scale="Vector(90.5, 84.39998, 92.99999)" use_min="False" use_max="False" vector="Vector(0.0, 0.0, 0.0)" width="240" loc="25, 13" />
+				<groupnode type="GROUP_OUTPUT"ERROR: NESTED GROUP NODES NOT YET SUPPORTED. width="140" loc="252, -4" />
+			</groupnodes>
+			<groupoutputs>
+				<groupoutput name="Color" type="RGBA" value="rgba(0.0, 0.0, 0.0, 1.0)" />
+			</groupoutputs>
+			<grouplinks>
+				<grouplink to="0" input="0" from="2" output="0" />
+				<grouplink to="2" input="0" from="1" output="2" />
+				<grouplink to="3" input="0" from="0" output="0" />
+			</grouplinks>
+		</group>
+	</groups>
+</material>
