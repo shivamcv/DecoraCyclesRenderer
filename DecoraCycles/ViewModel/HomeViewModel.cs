@@ -1,4 +1,5 @@
 ﻿using ccl;
+using DecoraCsycles.HelperClasses;
 using DecoraCsycles.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -81,9 +82,8 @@ namespace DecoraCsycles.ViewModel
                 return new ccl.Transform();
             }
         }
-       
 
-         public HomeViewModel()
+        public HomeViewModel()
         {
            // cameraView = SimpleIoc.Default.GetInstance<ConnectionViewModel>().SunburnScene.View.ToString();
             var width = (uint)Cycles.scene.Camera.Size.Width;
@@ -103,7 +103,7 @@ namespace DecoraCsycles.ViewModel
 
         }
 
-         private void LoadCameraView()
+        private void LoadCameraView()
          {
              using (var namedPipeClientStream = new NamedPipeClientStream(".", ConnectionViewModel.PIPENAME + "\\Camera", PipeDirection.InOut))
              {
@@ -140,14 +140,7 @@ namespace DecoraCsycles.ViewModel
              LoadCameraView();
          }
         
-        static string GetString(byte[] bytes)
-         {
-             char[] chars = new char[bytes.Length / sizeof(char)];
-             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
-             return new string(chars);
-         }
-
-         public void StatusUpdateCallback(uint sessionId)
+        public void StatusUpdateCallback(uint sessionId)
          {
              float progress;
              double total_time,render_time,tile_Time;
@@ -195,10 +188,10 @@ namespace DecoraCsycles.ViewModel
                          for (var col = y; col < y + h; col++)
                          {
                              var i = col * (int)width * 4 + row * 4;
-                             var r = Cycles.ColorClamp((int)(pixels[i] * 255.0f));
-                             var g = Cycles.ColorClamp((int)(pixels[i + 1] * 255.0f));
-                             var b = Cycles.ColorClamp((int)(pixels[i + 2] * 255.0f));
-                             var a = Cycles.ColorClamp((int)(pixels[i + 3] * 255.0f));
+                             var r = cc.ColorClamp((int)(pixels[i] * 255.0f));
+                             var g = cc.ColorClamp((int)(pixels[i + 1] * 255.0f));
+                             var b = cc.ColorClamp((int)(pixels[i + 2] * 255.0f));
+                             var a = cc.ColorClamp((int)(pixels[i + 3] * 255.0f));
 
                              Int64 pBackBuffer = (Int64)writeableBitmap.BackBuffer;
                             
@@ -270,7 +263,6 @@ namespace DecoraCsycles.ViewModel
                      }));
              }
          }
-         
 
          private RelayCommand start;
 
@@ -305,19 +297,10 @@ namespace DecoraCsycles.ViewModel
          public string CameraView
          {
              get { return cameraView; }
-             set { cameraView = value;
-             RaisePropertyChanged("CameraView");
-
-             var t = stringToTransform(cameraView);
-             Cycles.Session.Cancel("Asdf");
-             Cycles.Session.Scene.Camera.Matrix = t;
-             Cycles.Session.Scene.Camera.ComputeAutoViewPlane();
-             Cycles.Session.Scene.Camera.Update();
-          
-             Task.Factory.StartNew(() =>
-                 {
-                     Cycles.Session.Start();
-                 });
+             set { 
+                cameraView = value;
+                RaisePropertyChanged("CameraView");
+                var t = stringToTransform(cameraView);
              }
          }
         

@@ -99,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HelperClasses\cc.cs" />
     <Compile Include="HelperClasses\Encryption.cs" />
     <Compile Include="HelperClasses\ErrorReporting.cs" />
     <Compile Include="HelperClasses\INavigationService.cs" />

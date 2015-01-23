@@ -57,7 +57,6 @@ namespace DecoraCsycles.ViewModel
             RaisePropertyChanged("FinalView");
             }
         }
-        
 
         public string Translate { get; set; }
 
@@ -141,7 +140,6 @@ namespace DecoraCsycles.ViewModel
                     }));
             }
         }
-
 
         private RelayCommand render;
 

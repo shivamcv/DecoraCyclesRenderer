@@ -16,33 +16,23 @@ namespace DecoraCsycles.Model
 
     public class Cycles
     {
-        //
+     
         public static Client client;
         public static ccl.Scene scene;
         public static Session Session;
+        Device dev;
 
         public static int samples = 10;
 
-        //
-        Device dev;
         public Cycles()
         {
-            try
-            {
-                CSycles.set_kernel_path("lib");
-                CSycles.initialise();
+           CSycles.set_kernel_path("lib");
+           CSycles.initialise();
 
-                client = new Client();
+           client = new Client();
 
-
-                var scene_params = new SceneParameters(client, ShadingSystem.SVM, BvhType.Static, false, false, false, false);
-                scene = new ccl.Scene(client, scene_params, Device.Default);
-            }
-            catch (Exception ec)
-            {
-
-            }
-            
+           var scene_params = new SceneParameters(client, ShadingSystem.SVM, BvhType.Static, false, false, false, false);
+           scene = new ccl.Scene(client, scene_params, Device.Default);
         }
 
         public void Render(ccl.CSycles.RenderTileCallback WriteRenderTileCallback,
@@ -50,8 +40,6 @@ namespace DecoraCsycles.Model
             CSycles.UpdateCallback StatusUpdateCallback,
             ccl.CSycles.LoggerCallback LoggerCallback)
         {
-          
-
             LoadBackground();
 
             StartSession(WriteRenderTileCallback,UpdateRenderTileCallback,StatusUpdateCallback,LoggerCallback);
@@ -81,81 +69,19 @@ namespace DecoraCsycles.Model
             if (Session != null)
                 Session.Cancel("asdf");
 
-           
-
             Session = new Session(client, session_params, scene);
             Session.Reset((uint)scene.Camera.Size.Width, (uint)scene.Camera.Size.Height, (uint)samples);
 
             Session.UpdateCallback = StatusUpdateCallback;
             Session.UpdateTileCallback = UpdateRenderTileCallback;
             Session.WriteTileCallback = WriteRenderTileCallback;
-
            
                 Session.Start();
                 Session.Wait();
-           
         }
-        static public Shader create_some_setup_shader()
-        {
-            var some_setup = new Shader(client, Shader.ShaderType.Material)
-            {
-                Name = "some_setup",
-                UseMis = false,
-                UseTransparentShadow = true,
-                HeterogeneousVolume = false
-            };
-
-
-            var brick_texture = new BrickTexture();
-            brick_texture.ins.Vector.Value = new float4(0.000f, 0.000f, 0.000f);
-            brick_texture.ins.Color1.Value = new float4(0.800f, 0.800f, 0.800f);
-            brick_texture.ins.Color2.Value = new float4(0.200f, 0.200f, 0.200f);
-            brick_texture.ins.Mortar.Value = new float4(0.000f, 0.000f, 0.000f);
-            brick_texture.ins.Scale.Value = 1.000f;
-            brick_texture.ins.MortarSize.Value = 0.020f;
-            brick_texture.ins.Bias.Value = 0.000f;
-            brick_texture.ins.BrickWidth.Value = 0.500f;
-            brick_texture.ins.RowHeight.Value = 0.250f;
-
-            var checker_texture = new CheckerTexture();
-            checker_texture.ins.Vector.Value = new float4(0.000f, 0.000f, 0.000f);
-            checker_texture.ins.Color1.Value = new float4(0.000f, 0.004f, 0.800f);
-            checker_texture.ins.Color2.Value = new float4(0.200f, 0.000f, 0.007f);
-            checker_texture.ins.Scale.Value = 5.000f;
-
-            var diffuse_bsdf = new DiffuseBsdfNode();
-            diffuse_bsdf.ins.Color.Value = new float4(0.800f, 0.800f, 0.800f);
-            diffuse_bsdf.ins.Roughness.Value = 0.000f;
-            diffuse_bsdf.ins.Normal.Value = new float4(0.000f, 0.000f, 0.000f);
-
-            var texture_coordinate = new TextureCoordinateNode();          
-
-
-            some_setup.AddNode(brick_texture);
-            some_setup.AddNode(checker_texture);
-            some_setup.AddNode(diffuse_bsdf);
-            some_setup.AddNode(texture_coordinate);
-
-            brick_texture.outs.Color.Connect(diffuse_bsdf.ins.Color);
-            checker_texture.outs.Color.Connect(brick_texture.ins.Mortar);
-            texture_coordinate.outs.Normal.Connect(checker_texture.ins.Vector);
-            texture_coordinate.outs.UV.Connect(brick_texture.ins.Vector);
-
-            diffuse_bsdf.outs.BSDF.Connect(some_setup.Output.ins.Surface);
-
-            some_setup.FinalizeGraph();
-
-            return some_setup;
-        }
-        public static int ColorClamp(int ch)
-        {
-            if (ch < 0) return 0;
-            return ch > 255 ? 255 : ch;
-        }
-
+       
         public void CycleSetVertices(float[] allFloats, short[] indexElements, float[] UVs, Transform world, uint shaderId)
         {
-           
             var ob = CSycles.scene_add_object(Cycles.client.Id, Cycles.scene.Id);
             CSycles.object_set_matrix(Cycles.client.Id, Cycles.scene.Id, ob, world);
             var me = CSycles.scene_add_mesh(Cycles.client.Id, Cycles.scene.Id, ob, shaderId);
@@ -174,8 +100,6 @@ namespace DecoraCsycles.Model
             CSycles.mesh_set_uvs(Cycles.client.Id, Cycles.scene.Id, me, ref UVs, (uint)(UVs.Length / 2));
 
         }
-
-      
 
         private void LoadBackground()
         {
@@ -225,8 +149,6 @@ namespace DecoraCsycles.Model
             shader.FinalizeGraph();
         }
 
-
-
         public void LoadCamera(Transform View)
         {
                 client.Scene.Camera.SensorWidth = 32;
@@ -242,9 +164,6 @@ namespace DecoraCsycles.Model
                 client.Scene.Camera.ComputeAutoViewPlane();
                 client.Scene.Camera.Update();
         }
-
-
-
       
     }
 }

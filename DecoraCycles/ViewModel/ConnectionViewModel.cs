@@ -24,11 +24,22 @@ namespace DecoraCsycles.ViewModel
     {
         public RenderInitialise SunburnScene { get; set; }
         public const String PIPENAME = "DecoraCycle\\000f6f1e-dcv2-43b5-8999-e6e6b1e93edb";
-        NamedPipeClientStream pipeClient = null;
 
         public Cycles Renderer { get; set; }
         public DecoraShaders DShaders { get; set; }
+        
+        private int samples = 10;
+        public int Samples
+        {
+            get { return samples; }
+            set
+            {
+                samples = value;
+                RaisePropertyChanged("Samples");
+            }
+        }
 
+        public bool SaveOutput { get; set; }
         private int currentMesh;
 
         public int CurrentMesh
@@ -51,7 +62,6 @@ namespace DecoraCsycles.ViewModel
         }
 
         private int meshCount;
-
         public int MeshCount
         {
             get { return meshCount; }
@@ -59,7 +69,6 @@ namespace DecoraCsycles.ViewModel
             RaisePropertyChanged("MeshCount");
             }
         }
-        
         
         public ConnectionViewModel()
            {
@@ -69,7 +78,6 @@ namespace DecoraCsycles.ViewModel
               // Task.Factory.StartNew(FetchData);
               // Task<int>.Factory.StartNew(loadDefaultData,null);
            }
-           
 
         public int loadDefaultData( object arg)
         {
@@ -95,7 +103,7 @@ namespace DecoraCsycles.ViewModel
          
             Renderer.LoadCamera(Transform.Rotate(pi, new float4(0, 0, 1)) * Transform.Rotate(pi, new float4(0, 1, 0)) * mainVm.CameraView);
 
-            uint id = DShaders.ShaderList["Emission"];
+            uint id = DShaders.ShaderList["Diffuse"];
 
             if (arg != null)
                new CyclesShader().GetMaterial(arg.ToString(), ref id);
@@ -107,19 +115,7 @@ namespace DecoraCsycles.ViewModel
             return 0;
         }
 
-        private int samples=10;
-
-        public int Samples
-        {
-            get { return samples; }
-            set { samples = value;
-            RaisePropertyChanged("Samples");
-            }
-        }
-
-        public bool SaveOutput { get; set; }
-        short[] cache;
-       public void FetchData()
+        public void FetchData()
         {
             using (var namedPipeClientStream = new NamedPipeClientStream(".", PIPENAME, PipeDirection.InOut))
             {
@@ -237,7 +233,7 @@ namespace DecoraCsycles.ViewModel
             Renderer.CycleSetVertices(v, i,null, world, shaderId);
         }
        
-          public void Connected()
+        public void Connected()
             {
                 Views.Homepage p = new Views.Homepage();
                 p.DataContext = new HomeViewModel();
