@@ -1,7 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DecoraCsycles.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Translate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Rotate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FixedView" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.8453702f, -0.01766679f, 0.5338884f, 6.543896f, -0.02637207f, -0.9996144f, 0.008680073f, -65.50546f, 0.5335293f, -0.02141762f, -0.8455103f, 46.41003f, 0f, 0f, 0f, 1f</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

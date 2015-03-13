@@ -20,12 +20,30 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
-        <ScrollViewer>
+        <Grid>
+            <Image HorizontalAlignment="Left" Stretch="Uniform" Source="logo.png" />
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"  >
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock Text="Width " TextAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox  Width="50" FontSize="20" Text="{Binding Source={StaticResource Locator}, Path=Connection.Width , UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock Text="Height " TextAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox  Width="50" FontSize="20" Text="{Binding Source={StaticResource Locator}, Path=Connection.Height , UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock Text="No. of Samples " TextAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox  Width="50" FontSize="20" Text="{Binding Source={StaticResource Locator}, Path=Connection.Samples , UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <ScrollViewer Visibility="Collapsed">
          <StackPanel>
                 <StackPanel Height="50" VerticalAlignment="Top" Orientation="Horizontal">
                     <Button Content="Render" Command="{Binding Render}"/>
@@ -35,10 +53,11 @@
 
                 <Expander  Header="camera">
                     <StackPanel>
-                        <TextBox Text="{Binding Translate}"/>
-                        <TextBox Text="{Binding Rotate}"/>
+                        <TextBox TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding FixedView, UpdateSourceTrigger=PropertyChanged, Delay=1000}"/>
+                        <TextBox Text="{Binding Translate, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding Rotate, Mode=TwoWay}"/>
                         <Button Content="LoadCamera" Command="{Binding LoadCamera}"/>
-                        <TextBlock Text="{Binding FinalView}" TextWrapping="Wrap" />
+                        <TextBox IsReadOnly="True" Text="{Binding FinalView}" TextWrapping="Wrap" />
                     </StackPanel>
                 </Expander>
 
@@ -52,6 +71,6 @@
         </StackPanel>
         </ScrollViewer>
         
-        <Frame Margin="20" Grid.Column="1" NavigationUIVisibility="Hidden" x:Name="RootFrame"/>
+        <Frame Grid.Row="1" Margin="20" Grid.Column="1" NavigationUIVisibility="Hidden" x:Name="RootFrame"/>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using ccl;
 using ccl.ShaderNodes;
+using DecoraCsycles.HelperClasses;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,7 +17,11 @@ namespace DecoraCsycles.Model
 
     public class Cycles
     {
-     
+       static CSycles.RenderTileCallback WriteRenderTileCallback;
+       static CSycles.RenderTileCallback UpdateRenderTileCallback;
+       static CSycles.UpdateCallback StatusUpdateCallback;
+       static CSycles.LoggerCallback LoggerCallback;
+
         public static Client client;
         public static ccl.Scene scene;
         public static Session Session;
@@ -32,7 +37,7 @@ namespace DecoraCsycles.Model
            client = new Client();
 
            var scene_params = new SceneParameters(client, ShadingSystem.SVM, BvhType.Static, false, false, false, false);
-           scene = new ccl.Scene(client, scene_params, Device.Default);
+           scene = new ccl.Scene(client, scene_params, Device.FirstCuda);
         }
 
         public void Render(ccl.CSycles.RenderTileCallback WriteRenderTileCallback,
@@ -42,19 +47,21 @@ namespace DecoraCsycles.Model
         {
             LoadBackground();
 
-            StartSession(WriteRenderTileCallback,UpdateRenderTileCallback,StatusUpdateCallback,LoggerCallback);
+            Cycles.WriteRenderTileCallback = WriteRenderTileCallback;
+            Cycles.UpdateRenderTileCallback = UpdateRenderTileCallback;
+            Cycles.StatusUpdateCallback = StatusUpdateCallback;
+            Cycles.LoggerCallback = LoggerCallback;
+
+            StartSession();
         }
 
-        public static void StartSession(ccl.CSycles.RenderTileCallback WriteRenderTileCallback,
-            ccl.CSycles.RenderTileCallback UpdateRenderTileCallback,
-            CSycles.UpdateCallback StatusUpdateCallback,
-            ccl.CSycles.LoggerCallback LoggerCallback)
+        public static void StartSession()
         {
             client = new Client();
                        
             CSycles.set_logger(client.Id, LoggerCallback);
 
-            var session_params = new SessionParameters(client, Device.Default)
+            var session_params = new SessionParameters(client, Device.FirstCuda)
             {
                 Experimental = false,
                 Samples = (int)samples,
@@ -76,8 +83,13 @@ namespace DecoraCsycles.Model
             Session.UpdateTileCallback = UpdateRenderTileCallback;
             Session.WriteTileCallback = WriteRenderTileCallback;
            
-                Session.Start();
-                Session.Wait();
+            Session.Start();
+            Session.Wait();
+
+            saveOutput("rest.bmp");
+            Session.Destroy();
+            CSycles.shutdown();
+
         }
        
         public void CycleSetVertices(float[] allFloats, short[] indexElements, float[] UVs, Transform world, uint shaderId)
@@ -85,9 +97,7 @@ namespace DecoraCsycles.Model
             var ob = CSycles.scene_add_object(Cycles.client.Id, Cycles.scene.Id);
             CSycles.object_set_matrix(Cycles.client.Id, Cycles.scene.Id, ob, world);
             var me = CSycles.scene_add_mesh(Cycles.client.Id, Cycles.scene.Id, ob, shaderId);
-
             CSycles.mesh_set_verts(Cycles.client.Id, Cycles.scene.Id, me, ref allFloats, (uint)(allFloats.Length / 3));
-
             for (int i = 0; i < indexElements.Length; i += 3)
             {
                 var v0 = indexElements[i];
@@ -95,13 +105,11 @@ namespace DecoraCsycles.Model
                 var v2 = indexElements[i + 2];
                 CSycles.mesh_add_triangle(Cycles.client.Id, Cycles.scene.Id, me, (uint)v0, (uint)v1, (uint)v2, shaderId, false);
             }
-
-            if(UVs!= null)
-            CSycles.mesh_set_uvs(Cycles.client.Id, Cycles.scene.Id, me, ref UVs, (uint)(UVs.Length / 2));
-
+            if (UVs != null)
+                CSycles.mesh_set_uvs(Cycles.client.Id, Cycles.scene.Id, me, ref UVs, (uint)(UVs.Length / 2));
         }
 
-        private void LoadBackground()
+        private  void LoadBackground()
         {
             //var bgnode = new BackgroundNode();
             //bgnode.ins.Color.Value = new float4(0.7f);
@@ -149,8 +157,9 @@ namespace DecoraCsycles.Model
             shader.FinalizeGraph();
         }
 
-        public void LoadCamera(Transform View)
+        public static void LoadCamera(Transform View)
         {
+            var vm = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModel.ConnectionViewModel>();
                 client.Scene.Camera.SensorWidth = 32;
                 client.Scene.Camera.SensorHeight = 18;
                 client.Scene.Camera.NearClip = .1f;
@@ -158,12 +167,63 @@ namespace DecoraCsycles.Model
                 client.Scene.Camera.FocalDistance = 0;
                 client.Scene.Camera.Fov = .661f;
                 client.Scene.Camera.ApertureSize = 0;
-                client.Scene.Camera.Size = new Size(800, 600);
+                client.Scene.Camera.Size = new Size(vm.Width,vm.Height);
                 client.Scene.Camera.Type = CameraType.Perspective;
                 client.Scene.Camera.Matrix = View;
                 client.Scene.Camera.ComputeAutoViewPlane();
                 client.Scene.Camera.Update();
         }
-      
+
+        public static void RestartSession(Transform view = null)
+        {
+            if (view != null)
+            {
+                Session.Scene.Camera.Matrix = view;
+                Session.Scene.Camera.Update();
+            }
+
+            StartSession();
+            //Session.Reset((uint)scene.Camera.Size.Width, (uint)scene.Camera.Size.Height, (uint)samples);
+            //Session.Scene.Reset();
+
+            //Session.UpdateCallback = StatusUpdateCallback;
+            //Session.UpdateTileCallback = UpdateRenderTileCallback;
+            //Session.WriteTileCallback = WriteRenderTileCallback;
+
+            //Session.Start();
+            //Session.Wait();
+
+            //saveOutput("test.bmp");
+        }
+
+        private static void saveOutput(string p)
+        {
+            uint bufsize;
+            uint bufstride;
+            CSycles.session_get_buffer_info(client.Id, Session.Id, out bufsize, out bufstride);
+            var pixels = CSycles.session_copy_buffer(client.Id, Session.Id, bufsize);
+
+            var width = (uint)scene.Camera.Size.Width;
+            var height = (uint)scene.Camera.Size.Height;
+
+            var bmp = new Bitmap((int)width, (int)height);
+            for (var x = 0; x < width; x++)
+            {
+                for (var y = 0; y < height; y++)
+                {
+                    var i = y * (int)width * 4 + x * 4;
+                    var r = cc.ColorClamp((int)(pixels[i] * 255.0f));
+                    var g = cc.ColorClamp((int)(pixels[i + 1] * 255.0f));
+                    var b = cc.ColorClamp((int)(pixels[i + 2] * 255.0f));
+                    var a = cc.ColorClamp((int)(pixels[i + 3] * 255.0f));
+                    bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                }
+            }
+
+            bmp.Save(p);
+
+            Process.Start(p);
+        }
+
     }
 }

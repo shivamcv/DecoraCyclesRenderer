@@ -38,8 +38,8 @@ namespace DecoraCsycles
 
            Directory.CreateDirectory(TempStorageLocation);
 
-           //if( Process.GetProcesses().FirstOrDefault(p=>p.ProcessName == "SunBurn-DojoExample") == null)
-           //         Process.Start(@"F:\Project Cycles\SVN\trunk\Cycle test\Dojo-Framework-Example\bin\x86\Debug\SunBurn-DojoExample.exe");
+           if (Process.GetProcesses().FirstOrDefault(p => p.ProcessName == "Decora Studio Designer") == null)
+               Process.Start(@"XnaModel\Decora Studio Designer.exe");
 
         }
 

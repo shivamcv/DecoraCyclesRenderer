@@ -36,7 +36,6 @@ namespace DecoraCsycles
 
         }
         public int MeshCount { get; set; }
-
         public float[] CameraScale { get; set; }
         public Transform View { get; set; }
         public float[] CameraRotation { get; set; }
@@ -92,22 +91,26 @@ namespace DecoraCsycles
             // For each assemblyName/typeName that you want to deserialize to 
             // a different type, set typeToDeserialize to the desired type.
             String assemVer1 = Assembly.GetExecutingAssembly().FullName;
-        
 
-            if (assemblyName != assemVer1)
+
+            if (typeName != "System.Collections.Generic.List`1[[DecoraCsycles.RenderMesh, Decora Studio Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]")
             {
-                // To use a type from a different assembly version,  
-                // change the version number. 
-                // To do this, uncomment the following line of code. 
-                // assemblyName = assemblyName.Replace("1.0.0.0", "2.0.0.0");
+                if (assemblyName != assemVer1)
+                {
+                    // To use a type from a different assembly version,  
+                    // change the version number. 
+                    // To do this, uncomment the following line of code. 
+                    // assemblyName = assemblyName.Replace("1.0.0.0", "2.0.0.0");
 
-                // To use a different type from the same assembly,  
-                // change the type name.
+                    // To use a different type from the same assembly,  
+                    // change the type name.
 
-                assemblyName = assemVer1;
+                    assemblyName = assemVer1;
+                }
             }
+            else
+                typeName = string.Format("System.Collections.Generic.List`1[[DecoraCsycles.RenderMesh, {0}]]", assemVer1);
 
-            // The following line of code returns the type.
             typeToDeserialize = Type.GetType(String.Format("{0}, {1}",
                 typeName, assemblyName));
 

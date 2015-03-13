@@ -12,21 +12,24 @@ namespace DecoraCsycles.Model
 {
     public class DecoraShaders
     {
-        public Dictionary<string, uint> ShaderList { get; set; }
+        public static Dictionary<string, uint> ShaderList { get; set; }
         public DecoraShaders()
         {
             ShaderList = new Dictionary<string, uint>();
             AddDiffuseShader("Diffuse", Color.LightGray);
-            addEmissionShader("Emission", Color.White);
+            addEmissionShader("Emission", Color.White, .004f);
+            addEmissionShader("LampEmission", Color.FromArgb(254,254,251), .4f);
+            AddDiffuseShader("WallColor", Color.White);
+            AddDiffuseShader("BackColor", Color.Orange);
         }
 
-        private void addEmissionShader(string p, Color clr)
+        private void addEmissionShader(string p, Color clr, float strength)
         {
             var shader = new Shader(Cycles.client, Shader.ShaderType.Material) { Name = p };
 
             var emission_node = new EmissionNode();
             emission_node.ins.Color.Value = new float4(clr.R, clr.G, clr.B);
-            emission_node.ins.Strength.Value = 50f;
+            emission_node.ins.Strength.Value = strength;
 
             shader.AddNode(emission_node);
             emission_node.outputs.Socket("Emission").Connect(shader.Output.inputs.Socket("surface"));

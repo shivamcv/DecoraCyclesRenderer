@@ -11,18 +11,18 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding writeableBitmap}"/>
-        <StackPanel Grid.Row="1">
+        <Image Height="{Binding Source={StaticResource Locator}, Path=Connection.Height}" Width="{Binding Source={StaticResource Locator}, Path=Connection.Width}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding writeableBitmap}"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <TextBlock  Text="{Binding Status}" />
-            <TextBlock  Text="{Binding Logger}" />
+            <!--<TextBlock  Text="{Binding Logger}" />
             <TextBlock  Text="{Binding WriteTile}" />
             <TextBlock  Text="{Binding UpdateTile}" />
             <TextBox Text="{Binding CameraView,UpdateSourceTrigger=PropertyChanged, Delay=1000}"/>
-            <Button Content="restart" Command="{Binding Start}"/>
+            <Button Content="restart" Command="{Binding Restart}"/>
             <Button Content="Cancel" Command="{Binding Cancel}"/>
-            <Button Content="Update" Command="{Binding Update}"/>
+            <Button Content="Update" Command="{Binding Update}"/>-->
         </StackPanel>
     </Grid>
 </Page>

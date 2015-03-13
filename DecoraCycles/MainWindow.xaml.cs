@@ -21,6 +21,7 @@ namespace DecoraCsycles
 
             vm.Navigate.Execute(@"Views/Connection.xaml");
 
+           
 
         }
     }

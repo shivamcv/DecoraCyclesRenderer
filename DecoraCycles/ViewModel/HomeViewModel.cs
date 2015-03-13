@@ -167,6 +167,7 @@ namespace DecoraCsycles.ViewModel
 
          private void UpdateBitmap(uint x, uint y, uint w, uint h)
          {
+
                  var width = (uint)Cycles.scene.Camera.Size.Width;
                  var height = (uint)Cycles.scene.Camera.Size.Height;
 
@@ -178,9 +179,9 @@ namespace DecoraCsycles.ViewModel
                  var pixels = CSycles.session_copy_buffer(Cycles.client.Id, Cycles.Session.Id, bufsize);
 
                  writeableBitmap.Lock();
-                 
-                int[] Data = new int[w*h];
-                int ctr = 0;
+
+                 int[] Data = new int[w * h];
+                 int ctr = 0;
                  unsafe
                  {
                      for (var row = x; row < x + w; row++)
@@ -194,24 +195,25 @@ namespace DecoraCsycles.ViewModel
                              var a = cc.ColorClamp((int)(pixels[i + 3] * 255.0f));
 
                              Int64 pBackBuffer = (Int64)writeableBitmap.BackBuffer;
-                            
+
                              pBackBuffer += (int)col * writeableBitmap.BackBufferStride;
                              pBackBuffer += (int)row * 4;
 
                              int color_data = r << 16; // R
                              color_data |= g << 8;   // G
                              color_data |= b << 0;
-                                     
+
                              Data[ctr++] = color_data;
 
                              *((Int64*)pBackBuffer) = color_data;
                          }
                      }
                  }
-              //  writeableBitmap.WritePixels(new Int32Rect((int)x, (int)y, (int)w, (int)h),Data,64,0);
+                 //  writeableBitmap.WritePixels(new Int32Rect((int)x, (int)y, (int)w, (int)h),Data,64,0);
                  writeableBitmap.AddDirtyRect(new Int32Rect((int)x, (int)y, (int)w, (int)h));
 
                  writeableBitmap.Unlock();
+            
          }
 
          public void WriteRenderTileCallback(uint sessionId, uint x, uint y, uint w, uint h, uint depth)
@@ -264,18 +266,20 @@ namespace DecoraCsycles.ViewModel
              }
          }
 
-         private RelayCommand start;
+         private RelayCommand restart;
 
-         public RelayCommand Start
+         public RelayCommand Restart
          {
              get
              {
-                 return start ?? (start = new RelayCommand(() =>
+                 return restart ?? (restart = new RelayCommand(() =>
                      {
-                        // Cycles.Session.Reset((uint)Cycles.scene.Camera.Size.Width, (uint)Cycles.scene.Camera.Size.Width, 5);
-                         Cycles.Session.Start();
-                        // Cycles.Session.Wait();
+                         if (view != ccl.Transform.Identity())
+                             Cycles.RestartSession(view);
+                         else
+                             Cycles.RestartSession();
                      }));
+
              }
          }
 
@@ -292,7 +296,8 @@ namespace DecoraCsycles.ViewModel
              }
          }
 
-         private string cameraView;
+         ccl.Transform view;
+         private string cameraView= ";;0,0,-500";
 
          public string CameraView
          {
@@ -300,10 +305,8 @@ namespace DecoraCsycles.ViewModel
              set { 
                 cameraView = value;
                 RaisePropertyChanged("CameraView");
-                var t = stringToTransform(cameraView);
+                view = cc.stringToTransform(cameraView);
              }
          }
-        
-        
     }
 }

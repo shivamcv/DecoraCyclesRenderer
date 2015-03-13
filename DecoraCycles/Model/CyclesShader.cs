@@ -3,8 +3,11 @@ using ccl.ShaderNodes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,15 +17,29 @@ namespace DecoraCsycles.Model
 {
   public  class CyclesShader
     {
+
+      public CyclesShader()
+      {
+      }
+
+
       string errors = "";
-      List<ShaderNode> Nodes = new List<ShaderNode>();
-      List<Link> Links = new List<Link>();
+      List<ShaderNode> Nodes;
+      List<Link> Links;
       List<int> ignoreShaders = new List<int>();
       Shader currentShader;
+
+      Dictionary<string, uint> shaderCache = new Dictionary<string, uint>();
         internal void GetMaterial(string path, ref uint id)
         {
             try
             {
+                if(shaderCache.ContainsKey(path))
+                {
+                    id = shaderCache[path];
+                    return;
+                }
+
                 currentShader = new Shader(Cycles.client, Shader.ShaderType.Material);
 
                 var xDoc = XDocument.Load(new StreamReader(path));
@@ -75,19 +92,21 @@ namespace DecoraCsycles.Model
                 currentShader.FinalizeGraph();
 
                 id = Cycles.scene.AddShader(currentShader);
+
+                shaderCache.Add(path, id);
             }catch(Exception ex)
             {
                 errors += "\n" + ex.Message;
             }
-           if (!string.IsNullOrEmpty(errors))
-           {
+
+           
                File.WriteAllText("errors.txt", errors);
-               Process.Start("errors.txt");
-           }
+          
         }
 
         private void readLinks(XElement root)
         {
+            Links = new List<Link>();
             foreach (XElement node in root.Nodes())
             {
                 if (node.Name.LocalName != "link")
@@ -96,8 +115,6 @@ namespace DecoraCsycles.Model
                 Link temp = readLink(node);
 
                 Links.Add(temp);
-               
-                
             }
         }
 
@@ -139,7 +156,8 @@ namespace DecoraCsycles.Model
         }
 
         private  void readNode(XElement root)
-        {
+        { 
+            Nodes = new List<ShaderNode>();
             int i = 0;
             foreach (XElement node in root.Nodes())
             {
@@ -159,7 +177,7 @@ namespace DecoraCsycles.Model
                         break;
                     case "BSDF_TRANSPARENT" :
                         {
-                            RefractionBsdfNode temp = getRefractionBsdfNode(node);
+                            TransparentBsdfNode temp = getTransparentBsdfNode(node);
                             Nodes.Add(temp);
                         }
                         break;
@@ -235,6 +253,48 @@ namespace DecoraCsycles.Model
                             Nodes.Add(temp);
                         }
                         break;
+                    case "TEX_IMAGE":
+                        {
+                            TextureNode temp = getTextureNode(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "BSDF_REFRACTION":
+                        {
+                            RefractionBsdfNode temp = getRefractionBsdfNode(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "ADD_SHADER":
+                        {
+                            AddClosureNode temp = new AddClosureNode();
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "BSDF_GLASS":
+                        {
+                            GlassBsdfNode temp =  getGlassBsdfNode(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "LIGHT_PATH":
+                        {
+                            LightPathNode temp = getLightPath(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "BUMP":
+                        {
+                            BumpNode temp = getBumpNode(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
+                    case "EMISSION":
+                        {
+                            EmissionNode temp = getEmissionNode(node);
+                            Nodes.Add(temp);
+                        }
+                        break;
                     case "VECT_MATH": 
                     case "BSDF_VELVET":
                     case "HUE_SAT":
@@ -243,14 +303,252 @@ namespace DecoraCsycles.Model
                     case "HOLDOUT": //not found
                         ignoreShaders.Add(i);
                         Nodes.Add(new DiffuseBsdfNode());
-                        errors += "\n " + node.Value;
+                        errors += "\n " + node.Attribute("type").Value;
                          break;
                     default:
-                         errors += "\n " + node.Value;
+                         errors += "\n " + node.Attribute("type").Value;
                         break;
                 }
                 i++;
             }
+        }
+
+        private EmissionNode getEmissionNode(XElement node)
+        {
+            EmissionNode temp = new EmissionNode();
+
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                    case "color":
+                        {
+                            temp.ins.Color.Value = readColor(prop.Value);
+                        }
+                        break;
+                    case "strength":
+                        {
+                            temp.ins.Strength.Value = readFloat(prop.Value);
+                        }
+                        break;
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
+        }
+
+        private LightPathNode getLightPath(XElement node)
+        {
+            LightPathNode temp = new LightPathNode();
+
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                   
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
+        }
+
+        private GlassBsdfNode getGlassBsdfNode(XElement node)
+        {
+            GlassBsdfNode temp = new GlassBsdfNode();
+           
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                    case "roughness":
+                        {
+                            temp.ins.Roughness.Value = readFloat(prop.Value);
+                        }
+                        break;
+                    case "ior":
+                        {
+                            temp.ins.IOR.Value = readFloat(prop.Value);
+                        }
+                        break;
+                    case "color":
+                        {
+                            temp.ins.Color.Value = readColor(prop.Value);
+                        }
+                        break;
+                    case "distribution":
+                        {
+                            temp.Distribution = prop.Value;
+                        }
+                        break;
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
+        }
+
+        private BumpNode getBumpNode(XElement node)
+        {
+            BumpNode temp = new BumpNode();
+            
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                    case "strength":
+                        {
+                            temp.ins.Strength.Value = readFloat(prop.Value);
+                        }
+                        break;
+                    case "source":
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
+        }
+
+        private TextureNode getTextureNode(XElement node)
+        {
+            //
+            ImageTextureNode temp = new ImageTextureNode();
+            
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                    case "image":
+                        {
+                            temp.Filename = prop.Value;
+
+                            using (var bmp = new Bitmap(temp.Filename))
+                            {
+                                //var l = bmp.Width * bmp.Height * 4;
+                                //var bmpdata = new byte[l];
+                                //for (var x = 0; x < bmp.Width; x++)
+                                //{
+                                //    for (var y = 0; y < bmp.Height; y++)
+                                //    {
+                                //        var pos = y * bmp.Width * 4 + x * 4;
+                                //        var pixel = bmp.GetPixel(x, y);
+                                //        bmpdata[pos] = pixel.R;
+                                //        bmpdata[pos + 1] = pixel.G;
+                                //        bmpdata[pos + 2] = pixel.B;
+                                //        bmpdata[pos + 3] = pixel.A;
+                                //    }
+                                //}
+
+                                temp.ByteImage = BitmapToByteArray(bmp);
+                               temp.Width = (uint)bmp.Width;
+                               temp.Height = (uint)bmp.Height;
+                            }
+                        }
+                        break;
+                    case "color_space":
+                        {
+                            temp.ColorSpace = prop.Value == "COLOR" ?  TextureNode.TextureColorSpace.Color : TextureNode.TextureColorSpace.None;
+                        }
+                        break;
+                    case "projection":
+                        {
+                            temp.Projection = prop.Value == "FLAT" ? TextureNode.TextureProjection.Flat : TextureNode.TextureProjection.Box;
+                        }
+                        break;
+                    case "source":
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
+        }
+
+        public static byte[] BitmapToByteArray(Bitmap bitmap)
+        {
+
+            BitmapData bmpdata = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadOnly, bitmap.PixelFormat);
+            int numbytes = Math.Abs(bmpdata.Stride) * bitmap.Height;
+
+            byte[] bytedata = new byte[numbytes];
+            IntPtr ptr = bmpdata.Scan0;
+
+            Marshal.Copy(ptr, bytedata, 0, numbytes);
+
+            byte[] result = new byte[numbytes + numbytes / 3];
+            for (int i = 0; i < bytedata.Length/3; i ++)
+            {
+                result[i * 4+2] = bytedata[i * 3];
+                result[i * 4+1] = bytedata[i * 3+1];
+                result[i * 4] = bytedata[i * 3+2];
+                result[i * 4+3] = 255;
+            }
+
+            bitmap.UnlockBits(bmpdata);
+
+            return result;
+
+        }
+       
+        private TransparentBsdfNode getTransparentBsdfNode(XElement node)
+        { 
+            TransparentBsdfNode temp = new TransparentBsdfNode();
+            foreach (var prop in node.Attributes())
+            {
+                switch (prop.Name.LocalName)
+                {
+                    case "color":
+                        {
+                            temp.ins.Color.Value = readColor(prop.Value);
+                        }
+                        break;
+                    case "mute":
+                    case "label":
+                    case "width":
+                    case "loc":
+                    case "type":
+                        break;
+                    default:
+                        errors += "\n " + node.Value + " : " + prop.Value;
+                        break;
+                }
+            }
+            return temp;
         }
 
         private TextureCoordinateNode getTextureCoordinateNode(XElement node)
@@ -266,6 +564,8 @@ namespace DecoraCsycles.Model
                          
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -302,6 +602,8 @@ namespace DecoraCsycles.Model
                             temp.ins.Distortion.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -350,6 +652,8 @@ namespace DecoraCsycles.Model
                             temp.Scale = readVector(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -407,6 +711,8 @@ namespace DecoraCsycles.Model
                         {
                             temp.ins.Value2.Value = readFloat(prop.Value);
                         }break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -437,6 +743,8 @@ namespace DecoraCsycles.Model
                             temp.Coloring = prop.Value;
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -467,6 +775,8 @@ namespace DecoraCsycles.Model
                             temp.ins.Gamma.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -493,6 +803,8 @@ namespace DecoraCsycles.Model
                             temp.ins.IOR.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -518,6 +830,8 @@ namespace DecoraCsycles.Model
                             temp.ins.Fac.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -543,6 +857,8 @@ namespace DecoraCsycles.Model
                           temp.outs.Color.Value =   readColor(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -568,6 +884,8 @@ namespace DecoraCsycles.Model
                             temp.ins.Blend.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -604,6 +922,8 @@ namespace DecoraCsycles.Model
                             temp.Distribution = prop.Value;
                         }
                         break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -645,6 +965,8 @@ namespace DecoraCsycles.Model
                         }
                         break;
                     case "use_clamp": // not found
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -670,6 +992,24 @@ namespace DecoraCsycles.Model
                             temp.ins.Color.Value = readColor(prop.Value);
                         }
                         break;
+                    case "ior":
+                        {
+                            temp.ins.IOR.Value = readFloat(prop.Value);
+                           
+                        }
+                        break;
+                    case "distribution":
+                        {
+                            temp.Distribution = prop.Value;
+                        }
+                        break;
+                    case "roughness":
+                        {
+                            temp.ins.Roughness.Value = readFloat(prop.Value);
+                        }
+                        break;
+                    case "mute":
+                    case "label":
                     case "width":
                     case "loc":
                     case "type":
@@ -679,7 +1019,6 @@ namespace DecoraCsycles.Model
                         break;
                 }
             }
-
              return temp;
         }
 
@@ -701,6 +1040,8 @@ namespace DecoraCsycles.Model
                             temp.ins.Roughness.Value = readFloat(prop.Value);
                         }
                         break;
+                    case "label":
+                    case "mute":
                     case "width":
                     case "loc" :
                     case "type" :

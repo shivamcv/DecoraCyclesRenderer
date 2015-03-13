@@ -1,4 +1,5 @@
 ﻿using ccl;
+using DecoraCsycles.Properties;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
@@ -29,6 +30,12 @@ namespace DecoraCsycles.ViewModel
             CameraView = Transform.Translate(new float4(0, 0, -800));
 
             MaterialList =  Directory.GetFiles("Materials").ToList();
+            Translate = Settings.Default.Translate;
+            Rotate = Settings.Default.Rotate;
+            FixedView = Settings.Default.FixedView;
+            RaisePropertyChanged("Translate");
+            RaisePropertyChanged("Rotate");
+
         }
 
         private RelayCommand<string> navigate;
@@ -53,10 +60,30 @@ namespace DecoraCsycles.ViewModel
         public string FinalView
         {
             get { return finalView; }
-            set { finalView = value;
+            set {
+                var t = value.Replace("[", "");
+                 t = t.Replace("]", "");
+                foreach (var item in t.Split(','))
+                {
+                    finalView += item + "f,";
+                }
+                finalView += "\n";
             RaisePropertyChanged("FinalView");
             }
         }
+
+        private string fixedView;// = "0.8453702f, -0.01766679f, 0.5338884f, 6.543896f, -0.02637207f, -0.9996144f, 0.008680073f, -65.50546f, 0.5335293f, -0.02141762f, -0.8455103f, 46.41003f, 0f, 0f, 0f, 1f";
+
+        public string FixedView
+        {
+            get { return fixedView; }
+            set { fixedView = value;
+            RaisePropertyChanged("FixedView");
+            Settings.Default.FixedView = value;
+            Settings.Default.Save();
+            }
+        }
+        
 
         public string Translate { get; set; }
 
@@ -84,6 +111,11 @@ namespace DecoraCsycles.ViewModel
                             else
                             CameraView = r * t;
                         }
+
+                        Settings.Default.Rotate = Rotate;
+                        Settings.Default.Translate = Translate;
+                        Settings.Default.Save();
+
                     }));
             }
         }
@@ -143,7 +175,7 @@ namespace DecoraCsycles.ViewModel
 
         private RelayCommand render;
 
-        public RelayCommand Render
+        public RelayCommand Render  
         {
             get
             {
